@@ -1,3 +1,4 @@
-<h1>SideBar</h1>
-
-<?php echo $content; ?>
+<!-- <h1>SideBar</h1> -->
+<body class="home-page">
+	<?php echo $content ?>
+</body>
