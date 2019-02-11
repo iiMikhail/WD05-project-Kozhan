@@ -5,6 +5,14 @@ require('libs/functions.php');
 session_start();
 @$userInfo = $_SESSION['logged-user'];
 
+if(@$_SESSION['logged-user']['role'] == 'admin') {
+	$userRole = 'Администратор';
+} elseif(@$_SESSION['logged-user']['role'] == 'user') {
+	$userRole = 'Пользователь';
+} else {
+	@$userRole = $_SESSION['logged-user']['role'];
+}
+
 $errors = array();
 
 /**************************

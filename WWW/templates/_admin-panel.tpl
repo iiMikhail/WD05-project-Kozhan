@@ -12,7 +12,8 @@
 				</div>
 			</a>
 			<div class="brif ml-20">
-				<p class="brif__name"><?=@$_SESSION['logged-user']['firstname']?> <?=@$_SESSION['logged-user']['lastname']?></p><span class="badge"><?=@$_SESSION['logged-user']['role']?></span>
+				<p class="brif__name"><?=@$_SESSION['logged-user']['firstname']?> <?=@$_SESSION['logged-user']['lastname']?></p>
+				<span class="badge"><?=@$userRole?></span>
 			</div>
 		</div>
 		<nav class="admin-nav ml-70">

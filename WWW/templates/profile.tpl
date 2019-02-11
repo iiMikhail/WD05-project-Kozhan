@@ -10,7 +10,7 @@
 						</div>
 						<div class="user-profile-information mb-35 mt-40">
 							<div class="user-profile__avatar">
-								<div class="avatar"><img src="../img/avatars/avatar.jpg" alt="alt text avatar" /></div>
+								<div class="avatar"><img src="<?php echo HOST?>usercontent/avatar/full/<?php echo @$userInfo->avatar?>" alt="alt text avatar" /></div>
 							</div>
 							<div class="user-profile__description"><span>Имя и фамилия</span>
 								<p><?=@$userInfo->firstname?> <?=@$userInfo->lastname?></p><span>Email</span>

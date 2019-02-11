@@ -31,7 +31,7 @@
 							<?php } ?>
 						</div>
 						<div class="user-name"><span><?=@$_SESSION['logged-user']['firstname']?> <?=@$_SESSION['logged-user']['lastname']?></span>
-							<p><?=@$_SESSION['logged-user']['role']?></p>
+							<p><?=@$userRole?></p>
 							<div class="row user-buttons"><a class="button button-profile" href="profile">Профиль</a><a class="button button-profile" href="logout">Выход</a></div>
 						</div>
 					</div>
