@@ -10,7 +10,15 @@
 						</div>
 						<div class="user-profile-information mb-35 mt-40">
 							<div class="user-profile__avatar">
-								<div class="avatar"><img src="<?php echo HOST?>usercontent/avatar/full/<?php echo @$userInfo->avatar?>" alt="alt text avatar" /></div>
+								<?php if (@$userInfo['avatar'] != ""){ ?>
+									<div class="avatar">
+									<img src="<?=HOST?>usercontent/avatar/full/<?=@$userInfo->avatar?>" alt="alt text avatar" />
+								</div>
+								<?php } else { ?>
+									<div class="avatar">
+										<img src="<?php echo HOST?>usercontent/profile_def.png" alt="alt-avatar" />
+									</div>
+								<?php } ?>
 							</div>
 							<div class="user-profile__description"><span>Имя и фамилия</span>
 								<p><?=@$userInfo->firstname?> <?=@$userInfo->lastname?></p><span>Email</span>
@@ -20,27 +28,24 @@
 						</div>
 						<h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2>
 						<div class="user-profile-comments">
-							<div class="user-comment">
-								<div class="user-comment-profile"><a class="mr-20" href="#!" target="_blank"><span class="user-comment__article-title">Поездка в LA</span></a><span class="user-comment__date"><i class="far fa-clock icon--mr"></i>05 Мая 2017 года в 15:45</span>
-									<div class="user-comment__text-profile">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом. </p>
+
+							<?php foreach ($commentsPost as $comment) { ?>
+								<div class="user-comment">
+									<div class="user-comment-profile">
+										<a class="mr-20" href="<?php echo HOST?>blog/post?id=<?php echo $comment['id']?>" target="_blank">
+										<span class="user-comment__article-title">
+											<?php echo $comment['title']?>
+										</span></a>
+										<span class="user-comment__date">
+											<i class="far fa-clock icon--mr"></i>
+											<?php echo rus_date("j F Y H:i", strtotime($comment['date_time']))?>
+										</span>
+										<div class="user-comment__text-profile">
+											<p><?php echo $comment['text']?></p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="user-comment">
-								<div class="user-comment-profile"><a class="mr-20" href="#!" target="_blank"><span class="user-comment__article-title">Ноутбук для веб-разработчика</span></a><span class="user-comment__date"><i class="far fa-clock icon--mr"></i>15 Мая 2017 года в 10:02</span>
-									<div class="user-comment__text-profile">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом. </p>
-									</div>
-								</div>
-							</div>
-							<div class="user-comment">
-								<div class="user-comment-profile"><a class="mr-20" href="#!" target="_blank"><span class="user-comment__article-title">Настройка Sublime</span></a><span class="user-comment__date"><i class="far fa-clock icon--mr"></i>12 Мая 2017 года в 20:39</span>
-									<div class="user-comment__text-profile">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом. </p>
-									</div>
-								</div>
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>

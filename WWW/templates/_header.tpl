@@ -1,10 +1,8 @@
-<?php
-	if ( isset($_SESSION['logged-user'])
-		&& $_SESSION['login'] == '1'
-		&& $_SESSION['role'] == 'admin' ) {
-		include ROOT . "templates/_admin-panel.tpl";
-	}
-?>
+<?php  if ( isset($_SESSION['logged-user'])
+	&& $_SESSION['login'] == '1'
+	&& $_SESSION['role'] == 'admin' ) {
+	include ROOT . "templates/_admin-panel.tpl";
+} ?>
 
 	<header class="header">
 		<div class="row header__wrapper">
@@ -32,15 +30,15 @@
 						</div>
 						<div class="user-name"><span><?=@$_SESSION['logged-user']['firstname']?> <?=@$_SESSION['logged-user']['lastname']?></span>
 							<p><?=@$userRole?></p>
-							<div class="row user-buttons"><a class="button button-profile" href="profile">Профиль</a><a class="button button-profile" href="logout">Выход</a></div>
+							<div class="row user-buttons"><a class="button button-profile" href="<?php echo HOST?>profile">Профиль</a><a class="button button-profile" href="<?php echo HOST?>logout">Выход</a></div>
 						</div>
 					</div>
 				</div>
 			</div>	
 	<?php } else { ?>
 			<div class="user-block nav-dawn">
-				<a class="nav__link" href="./registration">Регистрация</a>
-				<a class="nav__link" href="./login">Вход</a>
+				<a class="nav__link" href="<?php echo HOST?>registration">Регистрация</a>
+				<a class="nav__link" href="<?php echo HOST?>login">Вход</a>
 			</div>
 	<?php } ?>
 		</div>

@@ -2,6 +2,8 @@
 require_once('config.php');
 require('db.php');
 require('libs/functions.php');
+$errors[] = array();
+$success[] = array();
 session_start();
 @$userInfo = $_SESSION['logged-user'];
 
@@ -37,9 +39,6 @@ switch ( $uri[0] ) {
 	case 'registration':
 		include ROOT . "modules/login/registration.php";
 		break;
-	// case 'portfolio/registration':
-	// 	include ROOT . "modules/login/registration.php";
-	// 	break;
 	case 'login':
 		include ROOT . "modules/login/login.php";
 		break;
@@ -58,12 +57,28 @@ switch ( $uri[0] ) {
 	case 'edit-profile':
 		include ROOT . "modules/profile/edit-profile.php";
 		break;
-	// ::::::: USERS :::::::::::
+	// ::::::: CONTACTS :::::::::::
 	case 'contacts':
 		include "modules/contacts/index.php";
 		break;
+	case 'contacts-edit':
+		include "modules/contacts/contacts-edit.php";
+		break;
+	case 'messages':
+		include "modules/contacts/messages.php";
+		break;
+	// ::::::: USERS :::::::::::		
 	case 'about':
 		include "modules/about/index.php";
+		break;
+	case 'about-edit':
+		include "modules/about/edit.php";
+		break;
+	case 'skills-edit':
+		include "modules/about/skills-edit.php";
+		break;
+	case 'expirience-edit':
+		include "modules/about/expirience-edit.php";
 		break;
 	case 'profile':
 		echo "profile.php";
@@ -74,6 +89,9 @@ switch ( $uri[0] ) {
 		break;
 	case 'blog/post-new':
 		include ROOT . "modules/blog/post-new.php";
+		break;
+	case 'blog/post-edit':
+		include ROOT . "modules/blog/post-edit.php";
 		break;
 	case 'blog/post':
 		include ROOT . "modules/blog/post.php";
@@ -90,6 +108,19 @@ switch ( $uri[0] ) {
 		break;
 	case 'blog/category-delete':
 		include ROOT . "modules/categories/delete.php";
+		break;
+	// ::::::: WORKS :::::::::::
+	case 'works':
+		include ROOT . "modules/works/index.php";
+		break;
+	case 'works/separate-work':
+		include ROOT . "modules/works/work.php";
+		break;
+	case 'works/edit-work':
+		include ROOT . "modules/works/edit-work.php";
+		break;
+	case 'works/add-work':
+		include ROOT . "modules/works/add-work.php";
 		break;
 
 	default:

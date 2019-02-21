@@ -23,16 +23,16 @@
 			<a href="<?php echo HOST?>blog/categories">
 				<i class="fas fa-folder"></i>Категория
 			</a>
-			<a href="works-add-work.html">
+			<a href="<?php echo HOST?>expirience-edit">
 				<i class="fas fa-plus-circle"></i>Работа
 			</a>
-			<a href="about-me.html">
+			<a href="<?php echo HOST?>about">
 				<i class="fas fa-edit"></i>Обо мне
 			</a>
-			<a href="contacts-edit.html">
+			<a href="<?php echo HOST?>contacts-edit">
 				<i class="fas fa-edit"></i>Контакты
 			</a>
-			<a href="contacts-messages.html">
+			<a href="<?php echo HOST?>messages">
 				<i class="fas fa-envelope"></i>Сообщения
 			</a>
 		</nav>

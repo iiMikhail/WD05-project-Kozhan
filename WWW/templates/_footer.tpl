@@ -26,6 +26,8 @@
 	<script src="<?php echo HOST?>templates/style/libs/jquery/jquery.min.js"></script><!-- endbuild -->
 	<!-- build:jsVendor js/vendor.js -->
 	<script src="<?php echo HOST?>templates/style/libs/jquery-custom-scrollbar/jquery.custom-scrollbar.js"></script><!-- endbuild -->
+	<script src="<?php echo HOST?>templates/style/js/input-file.js"></script>
+	
 	<!-- build:jsMain js/main.js -->
 	<script src="<?php echo HOST?>templates/style/js/main.js"></script>
 	<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&amp;callback=initMap"></script>

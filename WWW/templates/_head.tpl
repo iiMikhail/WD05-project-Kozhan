@@ -7,7 +7,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" /><!-- build:cssVendor css/vendor.css -->
 	<link rel="stylesheet" href="<?php echo HOST?>templates/style/libs/normalize-css/normalize.css" />
-
+	<script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script>
 	<link rel="stylesheet" href="<?php echo HOST?>templates/style/libs/bootstrap-4-grid/grid.min.css" /><!-- endbuild -->
 
 	<!-- build:cssCustom css/main.css -->

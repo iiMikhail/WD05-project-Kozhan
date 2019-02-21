@@ -13,12 +13,13 @@ if (isset($_POST['enter-button'])) {
 				$_SESSION['logged-user'] = $user;
 				$_SESSION['login'] = '1';
 				$_SESSION['role'] = $user->role;
-
 				header('Location: /');
 				exit();
 			} else {
 				$errors[] = ['title' => 'Неверный пароль'];
 			}
+		} else {
+			$errors[] = ['title' => 'Неверный E-mail'];
 		}
 	}
 }

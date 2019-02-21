@@ -1,5 +1,3 @@
-
-
 <body class="registration">
 	<div class="autorization autorization--vertical-position">
 		<div class="autorization-head">
@@ -12,29 +10,24 @@
 					<div class="autorization-content">
 						<h1 class="autorization-content__title mb-40">Регистрация</h1>
 						<form class="autorization-content-form" action="registration" method="POST">
-<?php foreach ($errors as $error) {
-	if (count($error) == 1) { ?>
-	<!-- Однострочная ошибка -->
-	<div class="notification">
-		<div id="nomail" class="notification__title notification--error mb-20"><?=$error['title']?>
-		</div>
-	</div>
-	<?php } else if (count($error) == 2) { ?>
-	<!-- Ошибка с описанием -->
-	<div class="notification">
-		<div class="notification__title notification--error notification--with-description">Данный email уже занят</div>
-		<div class="notification__description">
-			<p>Используйте другой email чтобы создать новый аккаунт.</p>
-			<p>Или воспользуйтесь <a href="#!">восстановлением пароля</a>, чтобы войти на сайт.</p>
-		</div>
-	</div>
-	<?php }
-} ?>
-						<!-- 	<div class="notification">
-								<div id="nomail" class="notification__title notification--error mb-20">Введите email</div>
-								<div class="notification__title notification--error mb-20" id="nopas">Введите пароль</div>
-								<div class="notification__title notification--error mb-20" id="fmail">Не верный формат email</div>
-							</div> -->
+							<?php foreach ($errors as $error) {
+								if (count($error) == 1) { ?>
+								<!-- Однострочная ошибка -->
+								<div class="notification">
+									<div id="nomail" class="notification__title notification--error mb-20"><?=$error['title']?>
+									</div>
+								</div>
+								<?php } else if (count($error) == 2) { ?>
+								<!-- Ошибка с описанием -->
+								<div class="notification">
+									<div class="notification__title notification--error notification--with-description">Данный email уже занят</div>
+									<div class="notification__description">
+										<p>Используйте другой email чтобы создать новый аккаунт.</p>
+										<p>Или воспользуйтесь <a href="#!">восстановлением пароля</a>, чтобы войти на сайт.</p>
+									</div>
+								</div>
+								<?php }
+							} ?>
 							<input class="input mb-10 mt-20" name="email" id="input-reg-email" type="email" placeholder="E-mail" />
 							<input class="input mb-30" name="password" id="input-reg-password" type="password" placeholder="Пароль" />
 							<div class="autorization-content-form-button">
@@ -55,13 +48,13 @@
 				</div>
 			</div>
 		</div>
-	</div><!-- build:jsLibs js/libs.js -->
-	<script src="./templates/style/libs/jquery/jquery.min.js"></script><!-- endbuild -->
-	<!-- build:jsVendor js/vendor.js -->
+	</div>
+	<!-- build:jsLibs js/libs.js -->
+	<script src="./templates/style/libs/jquery/jquery.min.js"></script>
 	<!-- build:jsMain js/main.js -->
-	<!-- <script src="./js/main.js"></script> -->
-	<!-- <script src="./templates/style/js/check-registration.js"></script> -->
-	<script defer="defer" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script defer="defer" 
+			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
+	</script>
 </body>
 
 </html>

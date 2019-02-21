@@ -1,4 +1,4 @@
-<?php
+<?php 
 $title = "Редактировать профиль";
 
 $userInfo = $_SESSION['logged-user'];
@@ -88,7 +88,9 @@ if (isset($_POST['save-profile'])) {
 		}
 
 		R::store($userInfo);
-
+		session_start();
+		@$userInfo = $_SESSION['logged-user'];
+		
 		$_SESSION['logged-user'] = $userID;
 		$userInfo = $_SESSION['logged-user'];
 		$_SESSION['logged-user'] = $userInfo;

@@ -1,6 +1,4 @@
-
-
-<body class="login-page">
+<body class="login-page"> 
 	<div class="autorization autorization--vertical-position">
 		<div class="autorization-head">
 			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>супер сайт</span></div>
@@ -12,18 +10,12 @@
 					<div class="autorization-content">
 						<h1 class="autorization-content__title mb-40">Вход на сайт</h1>
 						<form method="POST" class="autorization-content-form" action="login">
-
-<?php foreach ($errors as $error) {
-	if (count($error) == 1) { ?>
-	<!-- Однострочная ошибка -->
-	<div class="notification">
-		<div id="nomail" class="notification__title notification--error mb-20"><?=$error['title']?>
-		</div>
-	</div>
-	<?php }
-} ?>							
-							<input class="input mb-10 mt-20" name="email" id="input-email" type="email" placeholder="E-mail" />
-							<input class="input mb-25" name="password" id="input-password" type="password" placeholder="Пароль" />
+							<?php include ROOT . "templates/_errors.tpl" ?>
+		<!-- 					<div id="nomail" class="notify notify--error mb-20">Введите email</div>
+							<div id="fmail" class="notify notify--error mb-20">Неверный формат email</div>
+							<div id="nopas" class="notify notify--error mb-20">Введите пароль</div> -->
+							<input class="input mb-10 mt-20" name="email" id="input-email" type="email" placeholder="E-mail" value="<?=$_POST['email']?>" /> 
+							<input class="input mb-25" name="password" id="input-password" type="password" placeholder="Пароль" value="<?=$_POST['password']?>" />
 							<div class="autorization-content-form-help mb-30"><label class="form__label-checkbox"><input class="form__input-checkbox" type="checkbox" checked="checked" /><span class="form__checkbox"> </span>Запомнить меня </label><a class="link" href="lost-password">Забыл пароль</a></div>
 							<div class="autorization-content-form-button">
 								<input class="button button-enter" type="submit" name="enter-button" value="Войти" />
@@ -43,15 +35,14 @@
 				</div>
 			</div>
 		</div>
-	</div><!-- build:jsLibs js/libs.js -->
+	</div>
+	<!-- build:jsLibs js/libs.js -->
 	<script src="./libs/jquery/jquery.min.js"></script><!-- endbuild -->
-	<!-- build:jsVendor js/vendor.js -->
-	<script src="./libs/jquery-custom-scrollbar/jquery.custom-scrollbar.js"></script><!-- endbuild -->
 	<!-- build:jsMain js/main.js -->
 	<script src="./js/main.js"></script>
-	<script src="./js/input-file.js"></script><!-- endbuild -->
-	<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&amp;callback=initMap"></script>
-	<script defer="defer" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script defer="defer" 
+			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
+	</script>
 </body>
 
 </html>

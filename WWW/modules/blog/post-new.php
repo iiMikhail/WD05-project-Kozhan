@@ -2,6 +2,7 @@
 $title = "Добавить пост";
 $userInfo = $_SESSION['logged-user'];
 $posts = R::find('posts', 'ORDER BY id DESC');
+$categories = R::find('categories', 'ORDER BY cat_title');
 $errors[] = array();
 $success[] = array();
 if (isset($_POST['add-post'])) {
@@ -12,11 +13,12 @@ if (isset($_POST['add-post'])) {
 
 	// if (trim($_POST['post-desc']) == '') {
 	// 	$errors[] = ['title' => 'Введите текст поста']; 
-	// }
+	// } 
 
 	// if (empty($errors)) {
 		$post = R::dispense('posts');
 		$post->title = htmlentities($_POST['post-name']);
+		$post->categoryId = htmlentities($_POST['catId']);
 		$post->text = $_POST['post-desc'];
 		$post->dateTime = R::isoDateTime();
 		$post->autorId = $_SESSION['logged-user']['id'];

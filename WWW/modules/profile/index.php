@@ -1,7 +1,18 @@
-<?php
+<?php 
 $title = "Профиль";
 
 $userInfo = $_SESSION['logged-user'];
+
+ $sql = 'SELECT comments.text, comments.date_time, comments.post_id, comments.user_id, posts.id, posts.title
+FROM comments JOIN posts 
+ON comments.post_id = posts.id
+JOIN users ON comments.user_id=users.id
+WHERE users.id = ' . $_SESSION['logged-user']['id'] . '';
+$commentsPost = R::getAll($sql);
+
+// echo "<pre>";
+// print_r($commentsPost);
+// echo "</pre>";
 	
 ob_start();
 include ROOT . "templates/_header.tpl";

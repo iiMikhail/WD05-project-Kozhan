@@ -5,6 +5,7 @@
 				<h1 class="title-general mt-0 mb-0">Редактировать профиль</h1>
 				<form enctype="multipart/form-data" 
 				class="mt-35" action="edit-profile" method="POST">
+				<?php include ROOT . "templates/_errors.tpl" ?>
 					<div class="user-edit-wrapper">
 						<div class="user-edit-name">
 							<label class="label" for="userEditName">Имя</label>

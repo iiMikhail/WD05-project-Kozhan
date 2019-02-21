@@ -8,4 +8,5 @@ $(document).ready(function() {
 	setTimeout(function(){
 		$('#notify-updaded').slideUp(500)
 	}, 400)
+
 });

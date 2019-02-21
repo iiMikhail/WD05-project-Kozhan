@@ -1,4 +1,4 @@
-	<div class="container pb-120 pt-80 pl-0 pr-0">
+	<div class="container pb-80 pt-80 pl-0 pr-0">
 		<div class="blog-title mb-40">
 			<h1 class="title-general mb-0 mt-0 blog-title--color">Блог веб-разработчика</h1><a class="button button-edit" href="<?php echo HOST?>blog/post-new">Добавить пост</a>
 		</div>
