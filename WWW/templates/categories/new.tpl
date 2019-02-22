@@ -4,9 +4,15 @@
 				<div class="add-post-content">
 					<h1 class="title-general mt-0 mb-0">Добавить категорию</h1>
 					<form action="<?php echo HOST?>blog/category-new" method="POST">
-
+						
 						<div class="add-post-content__name mt-40">
-							<input class="input" name="cattitle" id="add-post-name" type="text" placeholder="Введите категорию" />
+							<?php include ROOT . "templates/_errors.tpl" ?>
+							<input 	class="input" 
+									name="cattitle" 
+									id="add-post-name" 
+									type="text" 
+									placeholder="Введите категорию" 
+									value="<?=@$_POST['cattitle']?>" />
 						</div>
 
 						<div class="add-post-content__submit mt-30">

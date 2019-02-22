@@ -1,16 +1,20 @@
 <?php
 $title = "Добавить категорию";
 
-$errors[] = array();
-if ($_POST['add-cat'] = '') {
-	$errors = ['title' => 'Введите имя категории'];
-}
-if(@$_POST['cattitle'] != '') {
-	$cat = R::dispense('categories');
-	$cat->cat_title = htmlentities($_POST['cattitle']);
-	R::store($cat);
-	header('location: ' . HOST . "blog/categories?result=cat-created");
-	exit();
+if(isset($_POST['cattitle'])) {
+	if ($_POST['add-cat'] = '') {
+		$errors = ['title' => 'Введите имя категории'];
+	}
+	if( R::count('categories', 'cat_title = ?', array($_POST['cattitle'])) > 0 ) {
+		$errors[] = ['title' => 'Категория уже существует'];
+	} 
+	if (isset($errors)) {
+		$cat = R::dispense('categories');
+		$cat->cat_title = htmlentities($_POST['cattitle']);
+		R::store($cat);
+		header('location: ' . HOST . "blog/categories?result=cat-created");
+		exit(); 
+	}
 }
 
 ob_start();

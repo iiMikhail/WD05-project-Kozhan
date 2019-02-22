@@ -14,9 +14,25 @@
 		<!-- 					<div id="nomail" class="notify notify--error mb-20">Введите email</div>
 							<div id="fmail" class="notify notify--error mb-20">Неверный формат email</div>
 							<div id="nopas" class="notify notify--error mb-20">Введите пароль</div> -->
-							<input class="input mb-10 mt-20" name="email" id="input-email" type="email" placeholder="E-mail" value="<?=$_POST['email']?>" /> 
-							<input class="input mb-25" name="password" id="input-password" type="password" placeholder="Пароль" value="<?=$_POST['password']?>" />
-							<div class="autorization-content-form-help mb-30"><label class="form__label-checkbox"><input class="form__input-checkbox" type="checkbox" checked="checked" /><span class="form__checkbox"> </span>Запомнить меня </label><a class="link" href="lost-password">Забыл пароль</a></div>
+							<input 	class="input mb-10 mt-20" 
+									name="email" id="input-email" 
+									type="email" 
+									placeholder="E-mail" 
+									value="<?=@$_POST['email']?>" /> 
+							<input 	class="input mb-25" 
+									name="password" 
+									id="input-password" 
+									type="password" 
+									placeholder="Пароль" 
+									value="<?=@$_POST['password']?>" />
+							<div class="autorization-content-form-help mb-30">
+								<label class="form__label-checkbox">
+									<input 	class="form__input-checkbox" 
+											type="checkbox" 
+											checked="checked" />
+										<span class="form__checkbox"> 
+										</span>Запомнить меня </label>
+										<a class="link" href="lost-password">Забыл пароль</a></div>
 							<div class="autorization-content-form-button">
 								<input class="button button-enter" type="submit" name="enter-button" value="Войти" />
 							</div>

@@ -1,4 +1,4 @@
-<?php
+<?php 
 $title = "Добавить пост";
 $userInfo = $_SESSION['logged-user'];
 $posts = R::find('posts', 'ORDER BY id DESC');
