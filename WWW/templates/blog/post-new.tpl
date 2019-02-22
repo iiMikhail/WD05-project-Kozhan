@@ -2,15 +2,15 @@
  	<div class="container pl-0 pr-0 pt-80 pb-120">
 		<div class="row m-0">
 			<div class="col-10 offset-1 p-0">
-				<div class="add-post-content">
+				<div class="add-post-content"> 
 					<h1 class="title-general mt-0 mb-0">Добавить пост</h1>
 					<form enctype="multipart/form-data" action="<?php echo HOST?>blog/post-new" method="POST">
-
 						<div class="add-post-content__name mt-40">
+							<?php include ROOT . "templates/_errors.tpl" ?>
 							<label class="label" for="add-post-name">
 								Поле для ввода
 							</label>
-							<input class="input" name="post-name" id="add-post-name" type="text" placeholder="Введите имя" />
+							<input class="input" name="post-name" id="add-post-name" type="text" placeholder="Введите имя" value="<?=@$_POST['post-name']?>" />
 						</div>
 
 						<div class="add-post-content__name mt-40">
@@ -20,7 +20,7 @@
 							<select name="postCat" class="input form-control form-control-lg">
 							<option selected="selected">Выберите категорию</option>
 							<?php foreach ($categories as $category) { ?>
-								<option><?php echo $category['cat_title']?></option>
+								<option><?=$category['cat_title']?></option>
 							<?php } ?>
 							</select>
 						</div>
@@ -44,7 +44,7 @@
 						<div class="add-post-content__main mt-30">
 							<label class="label" for="add-post-city">			Содержание
 							</label>
-							<textarea id="editor1" class="textarea" name="post-desc" id="add-post-city" placeholder="Введите пост"></textarea>
+							<textarea id="editor1" class="textarea" name="post-desc" id="add-post-city" placeholder="Введите пост"><?=@$_POST['post-desc']?></textarea>
 						</div>
 
 						<div class="add-post-content__submit mt-30">

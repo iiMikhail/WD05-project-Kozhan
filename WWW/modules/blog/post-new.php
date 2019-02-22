@@ -7,15 +7,18 @@ $errors[] = array();
 $success[] = array();
 if (isset($_POST['add-post'])) {
 
-	// if (trim($_POST['post-name']) == '') {
-	// 	$errors[] = ['title' => 'Введите название поста']; 
-	// }
+	if (trim($_POST['post-name']) == '') {
+		$errors[] = ['title' => 'Введите название поста']; 
+	}
 
-	// if (trim($_POST['post-desc']) == '') {
-	// 	$errors[] = ['title' => 'Введите текст поста']; 
-	// } 
+	if (trim($_POST['post-desc']) == '') {
+		$errors[] = ['title' => 'Введите текст поста']; 
+	} 
+	if (trim($_POST['postCat']) == '') {
+		$errors[] = ['title' => 'Выберите категорию']; 
+	} 
 
-	// if (empty($errors)) {
+	if (empty($errors)) {
 		$post = R::dispense('posts');
 		$post->title = htmlentities($_POST['post-name']);
 		$post->categoryId = htmlentities($_POST['catId']);
@@ -84,7 +87,7 @@ if (isset($_POST['add-post'])) {
 		R::store($post);
 		header('location: /blog');
 		exit();
-	// }
+	}
 }
 	
 ob_start();

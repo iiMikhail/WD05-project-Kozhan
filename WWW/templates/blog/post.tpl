@@ -4,11 +4,16 @@
 		<div class="col-10 offset-1">
 			<div class="post"> 
 				<div class="flexpos">
-					<h1 class="title-general mb-0 mt-0"><?php echo $post['title']?></h1>
+					<div></div>
 					<div>
 						<a class="button button-edit mr-10" href="<?php echo HOST?>blog/post-edit?id=<?php echo $post['id']?>">Редактировать</a>
 						<a class="button button-delete"  
 						href="<?php echo HOST?>blog/post?type=del&id=<?php echo $post['id']?>">Удалить</a>
+					</div>
+				</div>
+				<div class="flexpos">
+					<h1 class="title-general mb-0 mt-0"><?php echo $post['title']?></h1>
+					<div>
 					</div>
 				</div>
 				<div class="post-info">
