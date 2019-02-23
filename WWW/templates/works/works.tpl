@@ -16,4 +16,17 @@
 			</div>
 		<?php } ?>
 		</div>
+		<?php if (@$_GET['page']) { ?>
+			<div class="row">
+				<div class="pagination">
+					<?php for ($page = 1; $page <= $pagination['number_of_page']; $page++) {
+						if ($pagination['page_number'] == $page) {
+						echo '<a href="' . HOST . 'works?page=' . $page . '" class="pagination__item  pagination__item--active">' . $page . '</a>';
+	 					} else {
+	 						echo '<a href="' . HOST . 'works?page=' . $page . '" class="pagination__item">' . $page . '</a>';
+						} 
+					} ?>
+				</div>
+			</div>
+		<?php } ?>
 	</div>

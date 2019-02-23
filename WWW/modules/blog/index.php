@@ -1,6 +1,9 @@
 <?php
 $title = "Блог - Главная";
-$posts = R::find('posts', 'ORDER BY id DESC');
+
+// ПАГИНАЦИЯ
+$pagination = pagination('posts');
+$posts = R::find('posts', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
 	
 ob_start();
 include ROOT . "templates/_header.tpl";

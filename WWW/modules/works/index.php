@@ -1,7 +1,8 @@
-<?php
+<?php 
 $title = "Работы - главная";
-$work = R::find('works');
-	
+$pagination = pagination('works');
+$work = R::find('works', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
+ 
 ob_start();
 include ROOT . "templates/_header.tpl";
 include ROOT . "templates/works/works.tpl";

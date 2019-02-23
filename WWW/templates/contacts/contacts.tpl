@@ -1,6 +1,7 @@
 <div class="container pt-55 pb-80">
-	<div class="row">
-		<div class="col-12 clearfix mb-30"><a class="button float-right" href="<?php echo HOST?>messages">Сообщения</a><a class="button button-edit float-right mr-20" href="<?php echo HOST?>contacts-edit">Редактировать</a></div>
+	<div class="row">   
+		<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+		<div class="col-12 clearfix mb-30"><a class="button float-right" href="<?php echo HOST?>messages">Сообщения</a><a class="button button-edit float-right mr-20" href="<?php echo HOST?>contacts-edit">Редактировать</a></div> <?php  } ?>
 		<div class="col-5">
 			<h1 class="title-general mb-30">Контакты</h1>
 			<div class="row justify-content-between">
@@ -40,9 +41,7 @@
 				  	action="<?php echo HOST?>contacts">
 				<input class="input" name="name-user" type="text" placeholder="Введите имя" />
 				<input class="input" name="email-user" type="email" placeholder="Email" />
-				<textarea class="textarea mb-20" name="user-message" placeholder="Сообщение">
-					
-				</textarea>
+				<textarea class="textarea mb-20" name="user-message" placeholder="Сообщение"></textarea>
 				<section class="upload-file">
 					<h6 class="upload-file__title">Прикрепить файл</h6>
 					<p class="upload-file__description">jpg, png, pdf, doc, весом до 2Мб.</p>

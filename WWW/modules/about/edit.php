@@ -14,7 +14,6 @@ if (isset($_POST['save-button'])) {
 	if (empty($errors)) {
 
 		$about = R::load('about', 1);
-
 		@$about->name = htmlentities($_POST['fullName']);
 		@$about->text = $_POST['about-me-info'];
 

@@ -1,7 +1,6 @@
 <?php
 $title = "Блог - Главная";
-// $posts = R::find('posts', 'ORDER BY id DESC');
-// $post = R::findOne('posts', 'id=?', array($_GET['id']));
+
 $postDel = R::load('posts', $_GET['id']);
 $sql = 'SELECT posts.id, posts.postimg, posts.title, posts.text, posts.date_time, posts.update_time, posts.autor_id, posts.category_id, users.firstname, users.lastname, categories.cat_title
 FROM posts JOIN categories 
@@ -11,6 +10,15 @@ WHERE posts.id = ' . $_GET['id'] . '';
 
 $post = R::getAll($sql);
 $post = $post[0];
+
+$postId = R::getCol('SELECT id FROM posts ORDER BY id');
+foreach ($postId as $index => $id) {
+	if ($id == $_GET['id']) {
+		@$nextId = $postId[$index + 1];
+		@$prevId = $postId[$index - 1]; 
+		break;
+	}
+}
 
 if (isset($_POST['addComment'])) {
 	// if (trim($_POST['comment']) == "" ) {
@@ -24,28 +32,28 @@ if (isset($_POST['addComment'])) {
 	R::store($comment);
 	header('location: ' . HOST . "blog/post?id=" . $_GET['id']);
 	exit();
-
 }
 
 $sql = 'SELECT comments.id, comments.text, comments.date_time, comments.post_id, comments.user_id, posts.id, users.firstname, users.lastname, users.avatar_small
-FROM comments JOIN posts 
-ON comments.post_id = posts.id
-JOIN users ON comments.user_id=users.id
-WHERE comments.post_id = ' . $_GET['id'] . '';
-$commentsPost = R::getAll($sql);
+	FROM comments JOIN posts 
+	ON comments.post_id = posts.id
+	JOIN users ON comments.user_id=users.id
+	WHERE comments.post_id = ' . $_GET['id'] . '';
+	$commentsPost = R::getAll($sql);
 
-ob_start(); 
+ob_start();
+
 include ROOT . "templates/_header.tpl";
 include ROOT . "templates/blog/post.tpl";
 $content = ob_get_contents();
 ob_end_clean();
+
  if(@$_GET['type'] == 'del') {
-		// header('location: ' . HOST . 'categories/all?id=' . $category);
 	R::trash($postDel);
 	header('Location: /blog');
 }
+
 include ROOT . "templates/_head.tpl";
 include ROOT . "templates/template.tpl";
 include ROOT . "templates/_footer.tpl";
-
 ?>

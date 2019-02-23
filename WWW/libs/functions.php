@@ -1,5 +1,20 @@
 <?php
-
+function pagination($table, $count=6){
+	$number_of_results = R::count($table);
+	$results_per_page = $count;
+	$number_of_page = ceil($number_of_results/$results_per_page);
+	if (!isset($_GET['page'])) {
+		$page_number = 1;
+	} else {
+		$page_number = $_GET['page'];
+	}
+	$starting_limit_number = ($page_number - 1)*$results_per_page;
+	$sql_pages_limit = 'LIMIT ' . $starting_limit_number . ',' . $results_per_page;
+	$result['number_of_page'] = $number_of_page;
+	$result['page_number'] = $page_number;
+	$result['sql_pages_limit'] = $sql_pages_limit;
+	return $result;
+}
 function mbCutStr($string, $lenght, $postfix = '...', $encoding = 'UTF-8'){
 
 	if(mb_strlen($string, $encoding) <= $lenght) {

@@ -10,7 +10,15 @@ JOIN workcategory ON works.categoryid=workcategory.id
 WHERE works.id = ' . $_GET['id'] . '';
 
 $workOne = R::getAll($sql);
-$workOne = $workOne[0];
+@$workOne = $workOne[0];
+
+$workId = R::getCol('SELECT id FROM works ORDER BY id');
+foreach ($workId as $index => $id) {
+	if ($id == $_GET['id']) {
+		@$nextId = $workId[$index - 1]; 
+		break; 
+	}
+}
 	
 ob_start();
 include ROOT . "templates/only-admin-panel.tpl";

@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="col-10 offset-1">
 			<div class="post"> 
+				<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
 				<div class="flexpos">
 					<div></div>
 					<div>
@@ -11,6 +12,7 @@
 						href="<?php echo HOST?>blog/post?type=del&id=<?php echo $post['id']?>">Удалить</a>
 					</div>
 				</div>
+				<?php  } ?>
 				<div class="flexpos">
 					<h1 class="title-general mb-0 mt-0"><?php echo $post['title']?></h1>
 					<div>
@@ -39,7 +41,18 @@
 				<div class="post-content mb-25">
 					<?php echo $post['text']?>
 				</div>
-				<div class="post-buttons-nav mb-25"><a class="button button-previous" href="#">Назад <span class="button__icon button__icon--mright float-left"><i class="mr-0 fas fa-arrow-left"></i></span></a><a class="button button-next" href="#">Вперед <span class="button__icon"><i class="mr-0 fas fa-arrow-right"></i></span></a></div>
+				<div class="post-buttons-nav mb-25">
+					<?php if ($prevId != '') { ?>
+						<a class="button button-previous" href="<?=HOST?>blog/post?id=<?=$prevId?>">Назад <span class="button__icon button__icon--mright float-left"><i class="mr-0 fas fa-arrow-left"></i></span></a>
+					<?php } else { ?>
+						<div></div>
+					<?php } ?>
+					<?php if ($nextId != '') { ?>
+					<a class="button button-next" href="<?=HOST?>blog/post?id=<?=$nextId?>">Вперед <span class="button__icon"><i class="mr-0 fas fa-arrow-right"></i></span></a>
+					<?php } else { ?>
+						<div></div>
+					<?php } ?>
+				</div>	
 			</div>
 			<div class="user-comments-wrapper mb-25">
 				<div class="title-2"><?php echo commentNumber(count($commentsPost))?></div>

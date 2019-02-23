@@ -9,7 +9,10 @@
 					<div class="avatar"><img src="<?php echo HOST?>usercontent/about/photo/<?php echo $about['photo']?>" alt="alt text avatar" /></div>
 				</div>
 				<div class="col-md-9">
-					<div class="about-info"><a class="button button-edit float-right" href="<?php echo HOST?>about-edit">Редактировать</a>
+					<div class="about-info">
+						<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+						<a class="button button-edit float-right" href="<?php echo HOST?>about-edit">Редактировать</a>
+						<?php  } ?>
 						<p class="mb-15 about-info__name"><?php echo $about['name']?></p>
 						<p class="mb-0"><?php echo $about['text']?></p>
 					</div>
@@ -24,7 +27,9 @@
 					<h2 class="title-general mb-10 color-width">Технологии</h2>
 					<p class="indikators-block__text mt-0 mb-0">Которые использую в работе</p>
 				</div>
-				<div class="col-md-2"><a class="button button-edit" href="<?php echo HOST?>skills-edit">Редактировать</a></div>
+				<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+				<div class="col-md-2">
+					<a class="button button-edit" href="<?php echo HOST?>skills-edit">Редактировать</a></div> <?php } ?>
 			</div>
 			<div class="row">
 				<div class="col-md-2 list-technology">
@@ -148,9 +153,11 @@
 		<div class="sectoin-workflow pt-80 pb-120">
 			<div class="container">
 				<div class="row">
+					<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
 					<div class="offset-md-3 col-md-9 experience-work mb-25">
 						<h2 class="title-general mt-0 mb-0">Опыт работы</h2><a class="button button-edit" href="<?php echo HOST?>expirience-edit">Редактировать</a>
 					</div>
+					<?php } ?>
 				</div>
 				<div class="row">
 					<div class="offset-md-3 col-md-9">
