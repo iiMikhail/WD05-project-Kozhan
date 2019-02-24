@@ -135,5 +135,7 @@ function commentNumber ($num) {
 function adopt($text) {
 	return '=?UTF-8?B?'.base64_encode($text).'?=';
 }
-
+function price_format($price){
+	return number_format($price, 0, '', ' ');
+}
 ?>

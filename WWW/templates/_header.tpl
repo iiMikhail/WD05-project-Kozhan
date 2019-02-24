@@ -55,6 +55,9 @@
 				href="<?php echo HOST?>works">Работы</a>
 
 				<a class="nav__link" 
+				href="<?php echo HOST?>shop">Магазин</a>
+
+				<a class="nav__link" 
 				href="<?php echo HOST?>blog">Блог</a>
 
 				<a class="nav__link" 

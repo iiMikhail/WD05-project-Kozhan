@@ -122,6 +122,22 @@ switch ( $uri[0] ) {
 	case 'works/add-work':
 		include ROOT . "modules/works/add-work.php";
 		break;
+	// ::::::: WORKS :::::::::::
+	case 'shop':
+		include ROOT . "modules/shop/index.php";
+		break;
+	case 'shop/new':
+		include ROOT . "modules/shop/item-new.php";
+		break;
+	case 'shop/item':
+		include ROOT . "modules/shop/item.php";
+		break;
+	case 'shop/item-edit':
+		include ROOT . "modules/shop/item-edit.php";
+		break;
+	case 'shop/item-delete':
+		include ROOT . "modules/shop/item-delete.php";
+		break;
 
 	default:
 		include "modules/main/index.php";

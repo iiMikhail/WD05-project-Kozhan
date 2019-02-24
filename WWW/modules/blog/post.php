@@ -1,5 +1,5 @@
 <?php
-$title = "Блог - Главная";
+$title = "Блог - пост";
 
 $postDel = R::load('posts', $_GET['id']);
 $sql = 'SELECT posts.id, posts.postimg, posts.title, posts.text, posts.date_time, posts.update_time, posts.autor_id, posts.category_id, users.firstname, users.lastname, categories.cat_title
