@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Фев 23 2019 г., 10:44
+-- Время создания: Фев 24 2019 г., 20:32
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.2.8
 
@@ -104,6 +104,31 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `first_name`, `email`, `phone`, `last_name`, `skype`, `facebook`, `address`, `github`, `twitter`, `vkontakte`) VALUES
 (1, 'Михаил', 'mikhail.kozhan@gmail.com', '8 (981) 743-05-42', 'Кожан', 'nightwolf00707', '', 'Россия, г. Санкт-Петербург', 'https://github.com/iiMikhail', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `goods`
+--
+
+CREATE TABLE `goods` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `price` int(11) UNSIGNED DEFAULT NULL,
+  `price_old` int(11) UNSIGNED DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL,
+  `autor_id` int(11) UNSIGNED DEFAULT NULL,
+  `itemimg` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `itemimgsmall` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `goods`
+--
+
+INSERT INTO `goods` (`id`, `name`, `price`, `price_old`, `description`, `date_time`, `autor_id`, `itemimg`, `itemimgsmall`) VALUES
+(3, 'Еще товары Эппл', 1200, 3000, '<p>Тут описание о продаже товаров эппл</p>\r\n', '2019-02-24 20:11:13', 102, '772711953173.jpg', '320-772711953173.jpg');
 
 -- --------------------------------------------------------
 
@@ -319,6 +344,13 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `goods`
+--
+ALTER TABLE `goods`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_goods_autor` (`autor_id`);
+
+--
 -- Индексы таблицы `messages`
 --
 ALTER TABLE `messages`
@@ -389,6 +421,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `goods`
+--
+ALTER TABLE `goods`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
