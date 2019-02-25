@@ -41,9 +41,18 @@
 							</div>
 						</div>
 						<div class="post-content mb-50">
-							<?php echo $item['description']?>
+							<?=$item['description']?>
 						</div>
-						<a href="" class="button" id="addToCard">В корзину</a>
+						<form id="addToCart" method="POST" action="<?=HOST.'shop/addtocart'?>">
+							<input 	type="hidden" 
+									name="itemId" 
+									id="itemId" 
+									value="<?=$item['id']?>">
+							<input 	type="submit" 
+									name="addToCart" 
+									class="button mb-15" 
+									value="В корзину">
+						</form> 
 					</div>
 				</div>
 			</div>

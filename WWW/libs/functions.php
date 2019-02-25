@@ -39,7 +39,7 @@ function isAdmin(){
 
 function isLoggedIn(){
 	$result = false;
-	if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 ) {
+	if ( isset($_SESSION['logged-user']) && $_SESSION['login'] == 1 ) {
 		$result = true;
 	}
 	return $result;
@@ -128,6 +128,30 @@ function commentNumber ($num) {
 	}
 
 	echo  $num.' комментари'.$term;
+}
+
+function itemInCart ($num) {
+ 
+    //Оставляем две последние цифры от $num
+	$number = substr($num, -2);
+
+    //Если 2 последние цифры входят в диапазон от 11 до 14
+    //Тогда подставляем окончание "ЕВ" 
+    if($number == 1) {
+    	$term = "";
+	} elseif($number > 1 and $number < 5) {
+		$term = "а";
+	} elseif($number >= 5 and $number < 21) {
+		$term = "ов";
+	} elseif($number == 21) {
+		$term = "";
+	} elseif($number > 21 and $number < 25) {
+		$term = "а";
+	} elseif($number >= 25 and $number < 30) {
+		$term = "ов";
+	}
+
+	echo  $num.' товар'.$term;
 }
 
 

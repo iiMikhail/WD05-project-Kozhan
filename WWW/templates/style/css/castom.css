@@ -7536,7 +7536,7 @@ select.form-control:focus::-ms-value {
   position: absolute;
   z-index: 5;
   right: 0;
-  top: 50px;
+  top: 5px;
   font-size: 14px;
   padding: 10px 20px;
   background-color: #FFF;

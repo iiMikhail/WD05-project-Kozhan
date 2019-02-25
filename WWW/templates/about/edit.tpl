@@ -1,11 +1,11 @@
  <script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script> 
- <?php include ROOT . "templates/errors.tpl" ?>
 	 <div class="about-me-edit">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
 					<h1 class="title-general edit-title--color mt-0 mb-35">Редактировать - Обо Мне</h1> 
 					<form enctype="multipart/form-data" method="POST" action="<?php echo HOST?>about-edit" class="about-me-edit-info-form" id="about-me-edit-info">
+						 <?php include ROOT . "templates/_errors.tpl" ?> 
 						<div class="edit-name">
 							<label class="label" for="editFullName">Имя, фамилия</label>
 							<input class="input" name="fullName" id="editFullName" type="text" placeholder="Введите имя и фамилию" value="<?php echo $aboutAutor['name']?>" />

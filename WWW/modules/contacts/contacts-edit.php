@@ -1,9 +1,7 @@
-<?php 
+<?php
 $title = "Контакты";
 $contacts = R::load('contacts', 1);
 if (isset($_POST['savebutton'])) {
-	$contacts = R::dispense('contacts');
-
 	$contacts->firstName=htmlentities($_POST['first-name']);
 	$contacts->email=htmlentities($_POST['email']);
 	$contacts->vkontakte=htmlentities($_POST['vkontakte']);

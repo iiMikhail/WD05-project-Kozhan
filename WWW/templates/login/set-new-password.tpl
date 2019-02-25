@@ -36,7 +36,7 @@
 				<div class="col-12">
 					<div class="autorization-footer pb-30">
 						<p class="mb-15">© Михаил Кожан</p>
-						<p>Создано с <i class="mr-0 fas fa-heart"></i> в <a class="strong" href="http://glc.ru" target="_blank">DLC</a> в 2019 году</p>
+						<p>Создано в 2019 году. Все права защищены</p>
 					</div>
 				</div>
 			</div>

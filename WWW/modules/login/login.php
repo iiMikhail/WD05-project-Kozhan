@@ -1,6 +1,5 @@
 <?php 
 $title = "Вход на сайт";
-$errors = array();
 
 if (isset($_POST['enter-button'])) {
 	if (trim($_POST['email']) == '' || trim($_POST['password']) == '') {
@@ -13,6 +12,8 @@ if (isset($_POST['enter-button'])) {
 				$_SESSION['logged-user'] = $user;
 				$_SESSION['login'] = '1';
 				$_SESSION['role'] = $user->role;
+
+				require ROOT . "modules/shop/_cart-update-in-login.php";
 				header('Location: /');
 				exit();
 			} else {

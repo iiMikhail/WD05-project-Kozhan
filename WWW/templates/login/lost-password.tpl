@@ -33,8 +33,8 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="autorization-footer pb-30">
-						<p class="mb-15">© Юрий Ключевский</p>
-						<p>Создано с <i class="mr-0 fas fa-heart"></i> в <a class="strong" href="http://webcademy.ru" target="_blank">WebCademy.ru</a> в 2018 году</p>
+						<p class="mb-15">© Михаил Кожан</p>
+						<p>Создано в 2019 году. Все права защищены</p>
 					</div>
 				</div>
 			</div>

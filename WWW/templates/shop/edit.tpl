@@ -78,7 +78,7 @@
 									type="submit" 
 									name="add-item" 
 									value="Сохранить" />
-							<a class="button" href="<?HOST?>shop">Отмена</a>
+							<a class="button" href="<?=HOST?>shop/item?id=<?=$_GET['id']?>">Отмена</a>
 						</div>
 					</form>
 				</div>

@@ -5,10 +5,10 @@ $aboutAutor = $aboutAutor[1];
 
 if (isset($_POST['save-button'])) {
 
-	if ($_POST['fullName']) {
+	if ($_POST['fullName'] == '') { 
 		$errors[] = ['title' => 'Введите имя'];
 	}
-	if ($_POST['about-me-info']) {
+	if ($_POST['about-me-info'] == '') {
 		$errors[] = ['title' => 'Введите инфорацию об авторе'];
 	}
 	if (empty($errors)) {

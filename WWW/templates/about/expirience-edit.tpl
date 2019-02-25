@@ -28,9 +28,7 @@
 						<input class="input" name="job-name" id="name-post" type="text" placeholder="Введите название должности" />
 
 						<label class="label" for="description-text">Описание работы, должностные обязанности, достигнутые результаты</label>
-						<textarea class="textarea" name="description" id="description-text" placeholder="Напишите интересное краткое содержательное описание">
-							
-						</textarea>
+						<textarea class="textarea" name="description" id="description-text" placeholder="Напишите интересное краткое содержательное описание"></textarea>
 						<div class="row">
 							<div class="col-auto pr-30">
 								<input class="button button-save" type="submit" name="save-button" value="Добавить" /></div>

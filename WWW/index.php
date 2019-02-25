@@ -138,12 +138,15 @@ switch ( $uri[0] ) {
 	case 'shop/item-delete':
 		include ROOT . "modules/shop/item-delete.php";
 		break;
+	// ::::::: WORKS :::::::::::
+	case 'shop/addtocart':
+		include ROOT . "modules/shop/addtocart.php";
+		break;
 
 	default:
 		include "modules/main/index.php";
 		break;
 }
-// print_r($uri);
 
 
 

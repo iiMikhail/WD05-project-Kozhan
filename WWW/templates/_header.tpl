@@ -11,9 +11,9 @@
 					<div class="logo__img">
 						<i class="far fa-paper-plane"></i>
 					</div>
-					<div class="logo__title">Digital Lifestyle</div>
+					<div class="logo__title">Digital Developer Life</div>
 				</div>
-				<div class="logo__description">Сайт IT специалиста</div>
+				<div class="logo__description">Сайт веб-мастера</div>
 			</div>
 <?php
 	if ( isset($_SESSION['logged-user'])
@@ -64,4 +64,5 @@
 				href="<?php echo HOST?>contacts">Контакты</a>
 			</nav>
 		</div>
+		<?php include ROOT . "templates/shop/_cart-in-header.tpl" ?>
 	</header>

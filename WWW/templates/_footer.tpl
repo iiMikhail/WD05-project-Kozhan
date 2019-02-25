@@ -5,7 +5,7 @@
 					<div class="col-5 no-paddings">
 						<div class="footer__copyright">
 							<p>© Михаил Кожан</p>
-							<p>Создано с <i class="mr-0 fas fa-heart"></i> в <a class="strong" href="http://dls.net" target="_blank">Digital life style</a> в 2019 году</p>
+							<p>Создано в 2019 году. Все права защищены</p>
 						</div>
 					</div>
 					<div class="col-3 no-paddings">

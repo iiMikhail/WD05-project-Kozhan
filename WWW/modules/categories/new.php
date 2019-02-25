@@ -3,12 +3,12 @@ $title = "Добавить категорию";
 
 if(isset($_POST['cattitle'])) {
 	if ($_POST['add-cat'] = '') {
-		$errors = ['title' => 'Введите имя категории'];
+		$errors = ['title' => 'Введите имя категории']; 
 	}
 	if( R::count('categories', 'cat_title = ?', array($_POST['cattitle'])) > 0 ) {
 		$errors[] = ['title' => 'Категория уже существует'];
 	} 
-	if (isset($errors)) {
+	elseif (isset($errors)) {
 		$cat = R::dispense('categories');
 		$cat->cat_title = htmlentities($_POST['cattitle']);
 		R::store($cat);
