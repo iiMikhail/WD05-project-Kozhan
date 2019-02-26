@@ -1,6 +1,13 @@
 table {
   border-collapse: collapse;
 }
+h2 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+li {
+  line-height: 1.5;
+}
 .circle--magic {
   stroke: #AB47BC;
 }

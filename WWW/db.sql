@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Фев 24 2019 г., 20:32
+-- Время создания: Фев 26 2019 г., 03:25
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.2.8
 
@@ -32,7 +32,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `name`, `text`, `photo`) VALUES
-(1, 'Михаил Кожан', '<p>Я веб разработчик из Санкт-Петербурга. Мне 28 лет.</p>\r\n\r\n<p>Занимаюсь разработкой современных сайтов и приложенийю Мне нравится делать интересные и современные проекты.</p>\r\n\r\n<p>Этот сайт я сделал в рамкаобучения в школе онлайн обучения WebCademy. Чуть позже освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2><strong>Что я умею </strong></h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Меня привлекает Frontend разработка, это не только моя работа, но и хобби. Также знаком и могу решать несложные задачи на Backend. Знаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp</p>\r\n', '956502171363.png');
+(1, 'Михаил Кожан', '<p>Я веб разработчик из Санкт-Петербурга. Мне 28 лет (наверное).</p>\r\n\r\n<p>Занимаюсь разработкой современных сайтов и приложенийю Мне нравится делать интересные и современные проекты.</p>\r\n\r\n<p>Этот сайт я сделал в рамкаобучения в школе онлайн обучения WebCademy. Чуть позже освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2><strong>Что я умею </strong></h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Меня привлекает Frontend разработка, это не только моя работа, но и хобби. Также знаком и могу решать несложные задачи на Backend. Знаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp</p>\r\n', '956502171363.png');
 
 -- --------------------------------------------------------
 
@@ -52,8 +52,9 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `cat_title`) VALUES
 (5, 'Спорт'),
 (6, 'Разработка'),
-(8, 'Путешествия'),
-(9, 'Путешествия2');
+(12, 'Путешествия2'),
+(14, 'Путешествия'),
+(15, 'Путешествия3');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `first_name`, `email`, `phone`, `last_name`, `skype`, `facebook`, `address`, `github`, `twitter`, `vkontakte`) VALUES
-(1, 'Михаил', 'mikhail.kozhan@gmail.com', '8 (981) 743-05-42', 'Кожан', 'nightwolf00707', '', 'Россия, г. Санкт-Петербург', 'https://github.com/iiMikhail', '', '');
+(1, 'Михаил', 'mikhail.kozhan@gmail.com', '8 (981) 743-05-42', 'Кожан', 'nightwolf00707', '', 'Россия, г. Санкт-Петербург', 'https://github.com/iiMikhail', '', 'http://vk.ru');
 
 -- --------------------------------------------------------
 
@@ -200,15 +201,18 @@ CREATE TABLE `skills` (
   `git` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `gulp` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `bower` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `webpack` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+  `webpack` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `photoshop` int(11) UNSIGNED DEFAULT NULL,
+  `xd` int(11) UNSIGNED DEFAULT NULL,
+  `axure` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `skills`
 --
 
-INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `bower`, `webpack`) VALUES
-(1, '100', '90', '10', '90', '60', '30', '80', '60', '0', '');
+INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `bower`, `webpack`, `photoshop`, `xd`, `axure`) VALUES
+(1, '95', '100', '35', '75', '60', '75', '90', '90', '0', '', 90, 90, 40);
 
 -- --------------------------------------------------------
 
@@ -228,18 +232,21 @@ CREATE TABLE `users` (
   `recovery_code_times` int(11) UNSIGNED DEFAULT NULL,
   `recovery_code` varchar(191) DEFAULT NULL,
   `avatar` varchar(191) DEFAULT NULL,
-  `avatar_small` varchar(191) DEFAULT NULL
+  `avatar_small` varchar(191) DEFAULT NULL,
+  `cart` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `role`, `firstname`, `lastname`, `country`, `city`, `recovery_code_times`, `recovery_code`, `avatar`, `avatar_small`) VALUES
-(102, '123@mail.ru', '$2y$10$NfvgAdij7GcnRWO8yXmBf.bc8B/MvaHwJPFP16EUFJCe/j9AXX3IK', 'admin', 'Михаил', 'Кожан', 'Россия', 'Хабаровск', 3, '2ce4fhVWyUSlb0d', '532560761453.png', '48-532560761453.png'),
-(103, '1232@mail.ru', '$2y$10$Ga.JmZkLO1m1Q0VI.QrLdek2z9JOHETz.0zfMVdljNB3HEPjDwVY6', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(104, '12311@mail.ru', '$2y$10$5hHnykjv0UWDCRHqUXTXCOXIk.3bBkO1OYtN7ybAp9COnHTcKqDfG', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(106, 'mikhail.kozhan@gmail.com', '$2y$10$9k1MYYmtCwmObUpsstxtfOBRQPIyg7ITS9pmyo5ETcRSxdKLVKqmu', 'user', NULL, NULL, NULL, NULL, 3, 'FGTaXRUVlASxuom', NULL, NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `role`, `firstname`, `lastname`, `country`, `city`, `recovery_code_times`, `recovery_code`, `avatar`, `avatar_small`, `cart`) VALUES
+(102, '123@mail.ru', '$2y$10$NfvgAdij7GcnRWO8yXmBf.bc8B/MvaHwJPFP16EUFJCe/j9AXX3IK', 'admin', 'Михаил', 'Кожан', 'Россия', 'Хабаровск', 3, '2ce4fhVWyUSlb0d', '532560761453.png', '48-532560761453.png', '{\"3\":21}'),
+(103, '1232@mail.ru', '$2y$10$Ga.JmZkLO1m1Q0VI.QrLdek2z9JOHETz.0zfMVdljNB3HEPjDwVY6', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(104, '12311@mail.ru', '$2y$10$5hHnykjv0UWDCRHqUXTXCOXIk.3bBkO1OYtN7ybAp9COnHTcKqDfG', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(106, 'mikhail.kozhan@gmail.com', '$2y$10$9k1MYYmtCwmObUpsstxtfOBRQPIyg7ITS9pmyo5ETcRSxdKLVKqmu', 'user', NULL, NULL, NULL, NULL, 3, 'FGTaXRUVlASxuom', NULL, NULL, NULL),
+(107, '123@m', '$2y$10$S9BeA2ExBs3qe4wMZVeZ7OJV6Xh.fzb0RQeiv9Kl/sHOM9188GjcG', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(108, 'nightwolf00707@mail.ru', '$2y$10$viP6hgWaYO5z2A4O0aplsub9AIW/b4C69YWZepxKomHacnN6sF6VK', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -279,7 +286,8 @@ CREATE TABLE `workplaces` (
 --
 
 INSERT INTO `workplaces` (`id`, `date`, `job_name`, `description`) VALUES
-(12, 'с 1 мая', 'Разработчик', 'Разработка веб-сайтов');
+(12, 'с 1 мая', 'Разработчик', 'Разработка веб-сайтов'),
+(13, 'C 1 мая', 'Ведущий эксперт', 'Ну что-то наверное делал ...');
 
 -- --------------------------------------------------------
 
@@ -408,7 +416,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
@@ -426,7 +434,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT для таблицы `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
@@ -450,7 +458,7 @@ ALTER TABLE `skills`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT для таблицы `workcategory`
@@ -462,7 +470,7 @@ ALTER TABLE `workcategory`
 -- AUTO_INCREMENT для таблицы `workplaces`
 --
 ALTER TABLE `workplaces`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `works`

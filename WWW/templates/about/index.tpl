@@ -197,10 +197,13 @@
 					<div class="offset-md-3 col-md-9">
 						<?php foreach ($Fworkplace as $Fworkplace) { ?>
 							<div class="workflow-block mb-40">
-								<div class="workflow-block__date mb-15"><span>февраль 2017 - по настоящее время</span></div>
+								<div class="workflow-block__date mb-15">
+									<span><?=$Fworkplace['date']?></span></div>
 								<div class="workflow-info">
-									<h4 class="title-4 mb-15 mt-0">Frontend разработчик, Вконтакте, mail.ru group</h4>
-									<p>Работы в команде Вконтакте. Работал в команде над обновлением сервиса Музыка, работа над видео разделом. Создание видеолеера. Создание кроссбраузерных компонентов. Работа над оптимизацией скорости загрузки медиа контента.</p>
+									<h4 class="title-4 mb-15 mt-0">
+										<?=$Fworkplace['job_name']?>
+									</h4>
+									<p><?=$Fworkplace['description']?></p>
 								</div>
 							</div>
 						<?php } ?>

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://spikmi.com/Widget?id=290"></script>
 <footer class="footer">
 		<div class="container pl-0 pr-0">
 			<div class="footer__container">
