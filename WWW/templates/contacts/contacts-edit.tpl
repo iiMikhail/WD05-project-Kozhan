@@ -33,23 +33,19 @@
 							<input class="input" name="address" id="contactAddress" type="text" placeholder="Введите адрес" value="<?=$contacts['address']?>" />
 						</div>
 
-						<div class="col-md-3 position-field">
-							<div class="input-box">
+						<div class="col-md-3">
 								<label class="label" for="contactGithub">Github</label>
 								<input class="input" name="github" id="contactGithub" type="url" placeholder="Введите ссылку на профиль" value="<?=$contacts['github']?>" />
-							</div>
 						</div>
 
-						<div class="col-md-3 position-field">
-							<div class="input-box">
+						<div class="col-md-3">
 								<label class="label" for="contactTW">Twitter</label>
 								<input class="input" name="twitter" id="contactTW" type="url" placeholder="Введите ссылку на профиль" value="<?=$contacts['twitter']?>" />
-							</div>
 						</div>
 
 						<div class="col-mb-4">
 							<input class="button button-save ml-15 mr-20" type="submit" name="savebutton" value="Сохранить" />
-							<a class="button" href="<php echo HOST>contacts">Отмена</a>
+							<a class="button" href="<?=HOST?>contacts">Отмена</a>
 						</div>
 					</div>
 				</form>

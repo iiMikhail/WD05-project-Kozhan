@@ -9,27 +9,32 @@
 					<div class="contacts-category mb-55">
 						<p>Email</p>
 						<p>Skype</p>
-						<p>Социальные сети</p>
-					</div>
-					<div class="contacts-category">
 						<p>Телефон</p>
 						<p>Адрес</p>
+						<p>Социальные сети</p>
 					</div>
 				</div>
 				<div class="col-auto">
 					<div class="link-box mb-15">
 						<div class="link-box-info mb-20">
-							<p><a class="link" href="mailto:<?php echo $contacts['email']?>"><?php echo $contacts['email']?></a></p>
-							<p><a class="link" href="#!"><?php echo $contacts['skype']?></a></p>
+							<p><a class="link" href="mailto:<?=$contacts['email']?>"><?php echo $contacts['email']?></a></p>
+							<p><a class="link" href="#!"><?=$contacts['skype']?></a></p>
+						</div>
+						<div class="info mb-20">
+							<p><?php echo $contacts['phone']?></p>
+							<p><?php echo $contacts['address']?></p>
 						</div>
 						<div class="link-box-info">
-							<p><a class="link link--bold" href="<?php echo $contacts['vkontakte']?>">Профиль Вконтакте</a></p>
-							<p><a class="link link--bold" href="<?php echo $contacts['facebook']?>">Профиль Facebook</a></p>
+							<?php if ($contacts['vkontakte'] != '') { ?>
+								<p><a class="link link--bold" href="<?=$contacts['vkontakte']?>">Профиль Вконтакте</a></p>
+							<?php } ?>
+							<?php if ($contacts['facebook'] != '') { ?>
+								<p><a class="link link--bold" href="<?=$contacts['facebook']?>">Профиль Facebook</a></p>
+							<?php } ?>
+							<?php if ($contacts['twitter'] != '') { ?>
+								<p><a class="link link--bold" href="<?=$contacts['twitter']?>">Профиль Twitter</a></p>
+							<?php } ?>
 						</div>
-					</div>
-					<div class="info">
-						<p><?php echo $contacts['phone']?></p>
-						<p><?php echo $contacts['address']?></p>
 					</div>
 				</div>
 			</div>

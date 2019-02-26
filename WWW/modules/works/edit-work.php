@@ -4,11 +4,6 @@ $title = "Редактировать работу";
 $works = R::load('works', $_GET['id']);
 
 $categories = R::find('workcategory', 'ORDER BY name');
-// $categories0 = $categories[1];
-
-// echo "<pre>";
-// print_r($category);
-// echo "</pre>";
 
 $sql = 'SELECT works.categoryid, workcategory.id, workcategory.name
 FROM works JOIN workcategory ON works.categoryid=workcategory.id
@@ -19,23 +14,19 @@ $categoryOne = $categoryOne[0];
 
 if (isset($_POST['save-button-work'])) {
 
-	// if (trim($_POST['post-name']) == '') {
-	// 	$errors[] = ['title' => 'Введите название поста']; 
-	// } 
+	if (trim($_POST['workName']) == '') {
+		$errors[] = ['title' => 'Введите название работы']; 
+	} 
 
-	// if (trim($_POST['post-desc']) == '') {
-	// 	$errors[] = ['title' => 'Введите текст поста']; 
-	// } 
+	if (trim($_POST['workDescription']) == '') {
+		$errors[] = ['title' => 'Введите описание работы']; 
+	} 
 
-	// if (empty($errors)) { 
-		// $works = R::load('works', $_GET['id']);
-
-		
-
+	if (empty($errors)) { 
 		$works->name = htmlentities($_POST['workName']);
-		$works->description = htmlentities($_POST['workDescription']);
-		$works->result = htmlentities($_POST['workResult']);
-		$works->technology = htmlentities($_POST['workTechnology']);
+		$works->description = $_POST['workDescription'];
+		$works->result = $_POST['workResult'];
+		$works->technology = $_POST['workTechnology'];
 		$works->project = htmlentities($_POST['linkProject']);
 		$works->github = htmlentities($_POST['linkGithub']);
 		$works->categoryid = htmlentities($_POST['catid']);
@@ -77,13 +68,6 @@ if (isset($_POST['save-button-work'])) {
 
 			include_once( ROOT . "/libs/image_resize_imagick.php");
 
-			// $target_file =  $workFolderLocation . $db_file_name;
-			// $wmax = 945;
-			// $hmax = 545;
-			// $img = createThumbnailBig($target_file, $wmax, $hmax);
-			// $img->writeImage($target_file);
-			// $works->workimg = $db_file_name;
-
 			$target_file = $workFolderLocation . $db_file_name;
 			$wmax = 945;
 			$hmax = 545;
@@ -99,9 +83,9 @@ if (isset($_POST['save-button-work'])) {
 			$works->workimgsmall = "360-" . $db_file_name;
 		 }
 		R::store($works);
-		// header('location: /works/separate-work?id=' . $_GET['id']);
-		// exit();
-	// }
+		header('location: /works/separate-work?id=' . $_GET['id']);
+		exit();
+	}
 }
 	
 ob_start();

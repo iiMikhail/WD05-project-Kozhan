@@ -5,9 +5,9 @@ $categories = R::find('workcategory', 'ORDER BY name');
 if (isset($_POST['linkGithub'])) {
 	$works = R::dispense('works');
 	$works->name = htmlentities($_POST['workName']);
-	$works->description = htmlentities($_POST['workDescription']);
-	$works->result = htmlentities($_POST['workResult']);
-	$works->technology = htmlentities($_POST['workTechnology']);
+	$works->description = $_POST['workDescription'];
+	$works->result = $_POST['workResult'];
+	$works->technology = $_POST['workTechnology'];
 	$works->project = htmlentities($_POST['linkProject']);
 	$works->github = htmlentities($_POST['linkGithub']);
 	$works->autorid = htmlentities($_SESSION['logged-user']['id']);

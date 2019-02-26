@@ -8,7 +8,7 @@
 						</div> 
 						<form 
 							method="POST" 
-							enctype="multipart/form-data" 
+							enctype="multipart/form-data"  
 							class="add-works__form mt-40" 
 							action="<?php echo HOST?>works/edit-work?id=<?=$works['id']?>"
 						>

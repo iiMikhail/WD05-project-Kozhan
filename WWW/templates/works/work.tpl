@@ -1,4 +1,5 @@
-	<div class="separate-work-wrapper">
+ <script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script>
+ 	<div class="separate-work-wrapper">
 		<div class="separate-work-header-bg mb-50">
 			<div class="logo ml-50 mb-120">
 				<div class="logo__wrapper">
@@ -81,3 +82,17 @@
 			</div>
 		</div>
 	</div>
+<script>
+	document.addEventListener('DOMContentLoaded', function(){ // Аналог $(document).ready(function(){
+		// CKEDITOR.replace();
+		CKEDITOR.replace('editor1', {
+			customConfig: '<?php echo HOST?>templates/style/js/cKeditorConfig.js'
+		});
+		CKEDITOR.replace('editor2', {
+			customConfig: '<?php echo HOST?>templates/style/js/cKeditorConfig.js'
+		});
+		CKEDITOR.replace('editor3', {
+			customConfig: '<?php echo HOST?>templates/style/js/cKeditorConfig.js'
+		});
+	});
+</script> 
