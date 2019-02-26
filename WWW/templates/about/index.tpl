@@ -33,12 +33,46 @@
 			</div>
 			<div class="row">
 				<div class="col-md-2 list-technology">
+					<span class="list-technology__text">Design</span>
 					<span class="list-technology__text">Frontend</span>
 					<span class="list-technology__text">Backend</span>
 					<span class="list-technology__text">Workflow</span>
 				</div>
 				<div class="col-md-10">
 					<div class="container-indicators">
+						<div class="row ml-90 pt-40">
+							<?php if ($skillsF['photoshop']>='0') { ?>
+								<div class="indicator">
+									<svg class="svg-box">
+									<circle 
+									class="circle circle--magic"
+									stroke-dashoffset="<?php indikator($skillsF['photoshop'])?>">
+									</circle>
+									</svg>
+									<div class="indicator__text">Ps</div>
+								</div>					
+							<?php } ?>
+							
+							<?php if ($skillsF['xd']) { ?>
+							<div class="indicator"><svg class="svg-box">
+								<circle class="circle circle--magic"
+								stroke-dashoffset="<?php indikator($skillsF['xd'])?>">
+								</circle>
+								</svg>
+								<div class="indicator__text">XD</div>
+							</div>
+							<?php } ?>
+							<?php if ($skillsF['axure']) { ?>
+							<div class="indicator">
+								<svg class="svg-box">
+								<circle class="circle circle--magic" 
+								stroke-dashoffset="<?php indikator($skillsF['axure'])?>">
+								</circle>
+								</svg>
+								<div class="indicator__text">Axure</div>
+							</div>
+							<?php } ?>
+						</div>
 						<div class="row ml-90 pt-40">
 							<?php if ($skillsF['html']>='0') { ?>
 								<div class="indicator">

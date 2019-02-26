@@ -52,11 +52,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- build:jsLibs js/libs.js -->
-	<script src="./libs/jquery/jquery.min.js"></script><!-- endbuild -->
-	<!-- build:jsMain js/main.js -->
-	<script src="./js/main.js"></script>
-	<script defer="defer" 
+	<script src="<?=HOST?>libs/jquery/jquery.min.js"></script>
+	<script src="<?=HOST?>libs/js/main.js"></script>
+	<script defer="defer"
 			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
 	</script>
 </body>

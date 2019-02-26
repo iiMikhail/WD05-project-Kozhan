@@ -1,6 +1,9 @@
 table {
   border-collapse: collapse;
 }
+.circle--magic {
+  stroke: #AB47BC;
+}
 .pagination {
   margin-top: 35px;
   margin-bottom: 35px;

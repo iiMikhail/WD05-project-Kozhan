@@ -5,6 +5,9 @@ $skillsF = $skillsF[1];
 
 if (isset($_POST['save-button'])) {
 	$skills = R::load('skills', 1);
+	$skills->photoshop = htmlentities($_POST['photoshop']);
+	$skills->xd = htmlentities($_POST['xd']);
+	$skills->axure = htmlentities($_POST['axure']);
 	$skills->html = htmlentities($_POST['html5']);
 	$skills->css = htmlentities($_POST['css3']);
 	$skills->js = htmlentities($_POST['js']);

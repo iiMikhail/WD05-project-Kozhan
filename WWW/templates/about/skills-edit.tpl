@@ -7,6 +7,32 @@
 						<div class="row mb-40">
 							<div class="col-3">
 								<div class="about-me-tech__input">
+									<label class="label" for="technology-html">Photoshop</label>
+									<input class="input" name="photoshop" id="technology-html" type="number" placeholder="0" min="0" max="100" 
+									value="<?php echo $skillsF['html']?>"/>
+									<p class="percent">%</p>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="about-me-tech__input">
+									<label class="label" for="technology-css">XD</label>
+									<input class="input" name="xd" id="technology-css" type="number" placeholder="0" min="0" max="100" 
+									value="<?php echo $skillsF['css']?>"/>
+									<p class="percent">%</p>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="about-me-tech__input">
+									<label class="label" for="technology-js">Axure</label>
+									<input class="input" name="axure" id="technology-js" type="number" placeholder="0" min="0" max="100" 
+									value="<?php echo $skillsF['js']?>"/>
+									<p class="percent">%</p>
+								</div>
+							</div>
+						</div>
+						<div class="row mb-40">
+							<div class="col-3">
+								<div class="about-me-tech__input">
 									<label class="label" for="technology-html">HTML5</label>
 									<input class="input" name="html5" id="technology-html" type="number" placeholder="0" min="0" max="100" 
 									value="<?php echo $skillsF['html']?>"/>

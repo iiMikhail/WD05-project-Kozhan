@@ -23,7 +23,9 @@
 							<div class="user-profile__description"><span>Имя и фамилия</span>
 								<p><?=@$userInfo->firstname?> <?=@$userInfo->lastname?></p><span>Email</span>
 								<p><?=@$userInfo->email?></p><span>Страна, Город</span>
-								<p><?=@$userInfo->country?>, <?=@$userInfo->city?></p>
+								<p><?=@$userInfo->country?> 
+								<?php if ((@$userInfo['country']) != '' 
+								&& (@$userInfo['city']) != '') { echo ", "; } ?> <?=@$userInfo->city?></p>
 							</div>
 						</div>
 						<h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2>

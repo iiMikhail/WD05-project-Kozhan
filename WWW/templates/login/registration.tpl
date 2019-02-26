@@ -28,10 +28,11 @@
 								</div>
 								<?php }
 							} ?>
+							<div id="fmail" class="notification__title notification--error notification--with-description">Неверный формат email</div>
 							<input class="input mb-10 mt-20" name="email" id="input-reg-email" type="email" placeholder="E-mail" />
 							<input class="input mb-30" name="password" id="input-reg-password" type="password" placeholder="Пароль" />
 							<div class="autorization-content-form-button">
-								<input class="button button-enter" type="submit" name="enter-button" value="Регистрация" />
+								<input id="buttonreg" class="button button-enter" type="submit" name="enter-button" value="Регистрация" />
 							</div>
 						</form>
 					</div>
@@ -49,9 +50,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- build:jsLibs js/libs.js -->
-	<script src="./templates/style/libs/jquery/jquery.min.js"></script>
-	<!-- build:jsMain js/main.js -->
+	<script src="<?=HOST?>libs/jquery/jquery.min.js"></script>
+	<script src="<?=HOST?>libs/js/main.js"></script>
+	<script src="<?=HOST?>templates/style/js/check-registration.js"></script>
 	<script defer="defer" 
 			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
 	</script>
