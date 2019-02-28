@@ -42,7 +42,9 @@ if (isset($_POST['save-button'])) {
 			$message->file = $db_file_name;
 			$message->originalFile = $fileName;
 
-	R::store($message);
+	R::store($message); 
+	header('location: ' . HOST . "contacts?result=message-sent");
+	exit();  
 }
 }
 

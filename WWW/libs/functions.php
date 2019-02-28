@@ -147,7 +147,13 @@ function itemInCart ($num) {
 		$term = "";
 	} elseif($number > 21 and $number < 25) {
 		$term = "а";
-	} elseif($number >= 25 and $number < 30) {
+	} elseif($number >= 25 and $number < 31) {
+		$term = "ов";
+	} elseif($number == 31) {
+		$term = "";
+	} elseif($number > 31 and $number < 35) {
+		$term = "а";
+	} elseif($number >= 35 and $number < 41) {
 		$term = "ов";
 	}
 
