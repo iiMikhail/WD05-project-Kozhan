@@ -14,9 +14,11 @@
 						<div class="col-8 offset-1">
 							<h1 class="title-general separate-work-title--size"><?php echo $work['name']?></h1>
 						</div>
+						<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
 						<div class="col-2">
 							<div class="separate-work-head__button-edit"><a class="button button-edit" href="<?php echo HOST?>works/edit-work?id=<?php echo $work['id']?>">Редактировать</a></div>
 						</div>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="separate-work-info mt-10">

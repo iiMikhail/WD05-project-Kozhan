@@ -1,24 +1,22 @@
- <?php
+<?php
 $title = "Редактировать пост";
-// $userInfo = $_SESSION['logged-user'];
+
 $post = R::load('posts', $_GET['id']);
 $categories = R::find('categories', 'ORDER BY cat_title');
-$errors[] = array();
-$success[] = array();
+
 if (isset($_POST['add-post'])) {
-
-	// if (trim($_POST['post-name']) == '') {
-	// 	$errors[] = ['title' => 'Введите название поста']; 
-	// }
-
-	// if (trim($_POST['post-desc']) == '') {
-	// 	$errors[] = ['title' => 'Введите текст поста']; 
-	// } 
-
-	// if (empty($errors)) {
-		// $post = R::dispense('posts');
+	if (trim($_POST['post-name']) == '') {
+		$errors[] = ['title' => 'Введите название поста']; 
+	}
+	if (trim($_POST['post-desc']) == '') {
+		$errors[] = ['title' => 'Введите текст поста']; 
+	} 
+	if (trim($_POST['postCat']) == '') {
+		$errors[] = ['title' => 'Выберите категорию']; 
+	} 
+	if (empty($errors)) { 
 		$post->title = htmlentities($_POST['post-name']);
-		$post->categoryId = htmlentities($_POST['catId']);
+		$post->categoryId = htmlentities($_POST['postCat']);
 		$post->text = $_POST['post-desc'];
 		$post->updateTime = R::isoDateTime();
 		$post->autorId = $_SESSION['logged-user']['id'];
@@ -46,58 +44,51 @@ if (isset($_POST['add-post'])) {
 			 if ($fileErrorMsg == 1) {
 				$errors[] = ['title' => 'Неизвестная ошибка'];
 			 }
+			if (empty($errors)) {
+				$postFolderLocation = ROOT . 'usercontent/blog/post/';
+				$postFolderLocationSmall = ROOT . 'usercontent/blog/post/small/';
 
-			$postFolderLocation = ROOT . 'usercontent/blog/post/';
-			$postFolderLocationSmall = ROOT . 'usercontent/blog/post/small/';
+				$postImg = $post->postimg;
+				$postImgSmall = $post->postimgsmall;
+				if($postImg != "") {
+				 	$picurl = $postFolderLocation . $postImg;
+				 	if (file_exists($picurl)) {
+				 		unlink($picurl);
+				 	}
+				 	$picurl320 = $postFolderLocationSmall . '320-' . $postImgSmall;
+				 	if (file_exists($picurl320)) {
+				 		unlink($picurl320);
+				 	}
+				 }
 
-			$postImg = $post->postimg;
-			$postImgSmall = $post->postimgsmall;
-			if($postImg != "") {
-			 	$picurl = $postFolderLocation . $postImg;
-			 	if (file_exists($picurl)) {
-			 		unlink($picurl);
-			 	}
-			 	$picurl320 = $postFolderLocationSmall . '320-' . $postImgSmall;
-			 	if (file_exists($picurl320)) {
-			 		unlink($picurl320);
-			 	}
-			 }
+				$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
+				$uploadfile = $postFolderLocation . $db_file_name;
+				$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
 
-			$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
-			$uploadfile = $postFolderLocation . $db_file_name;
-			$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
-			
-			if ($moveResult != true) {
-				$errors[] = ['title' => 'Ошибка сохранения файла' ];
+				include_once( ROOT . "/libs/image_resize_imagick.php");
+
+				$target_file =  $postFolderLocation . $db_file_name;
+				$wmax = 920;
+				$hmax = 620;
+				$img = createThumbnailBig($target_file, $wmax, $hmax);
+				$img->writeImage($target_file);
+
+				$post->postimg = $db_file_name;
+
+				$target_file =  $postFolderLocation . $db_file_name;
+				$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
+				$wmax = 320;
+				$hmax = 140;
+				$img = createThumbnailCrop($target_file, $wmax, $hmax);
+				$img->writeImage($resized_file);
+
+				$post->postimgsmall = "320-" . $db_file_name;
 			}
-
-			include_once( ROOT . "/libs/image_resize_imagick.php");
-
-			$target_file =  $postFolderLocation . $db_file_name;
-			// $resized_file = $avatarFolderLocation . $db_file_name;
-			$wmax = 920;
-			$hmax = 620;
-			$img = createThumbnailBig($target_file, $wmax, $hmax);
-			$img->writeImage($target_file);
-
-			$post->postimg = $db_file_name;
-
-			$target_file =  $postFolderLocation . $db_file_name;
-			$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
-			$wmax = 320;
-			$hmax = 140;
-			$img = createThumbnailCrop($target_file, $wmax, $hmax);
-			$img->writeImage($resized_file);
-
-			$post->postimgsmall = "320-" . $db_file_name;
-
 		 }
-
-
 		R::store($post);
-		header('location: /blog');
+		header("location: " . HOST . "blog");
 		exit();
-	// }
+	}
 }
 	
 ob_start();

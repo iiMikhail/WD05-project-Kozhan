@@ -1,8 +1,11 @@
-<?php 
+<?php  
 
 // Загружаем пользователя, на случай, если придется обновить корзину на сервере
-$currentUser = $_SESSION['logged_user'];
-$user = R::load('users', $currentUser->id);
+$currentUser = $_SESSION['logged-user'];
+$user = R::load('users', $currentUser['id']);
+
+// Получаем ID товара 
+$currentItemId = intval($_POST['itemId']);
 
 // Определяем корзину в БД
 $cartServer = json_decode($user->cart, true);
@@ -48,7 +51,7 @@ if ( count($cartServer) > 0 && count($cartLocal) > 0  ) {
 
 		// Преобразуем в строку
 		$cartNew = json_encode($cartNew);
-
+		$user->cart = json_encode($cartNew);
 		return $cartNew;
 	}
 

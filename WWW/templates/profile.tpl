@@ -28,6 +28,55 @@
 								&& (@$userInfo['city']) != '') { echo ", "; } ?> <?=@$userInfo->city?></p>
 							</div>
 						</div>
+						<div class="mb-30">
+							<div class="title-1">Мои заказы</div>
+						  	<?php if ($orders != '') { ?>
+								<table class="table">
+									<tbody>
+										<?php foreach ($orders as $order) { 
+											$orderItems = json_decode($order['items']) ?>
+											<tr class="table-hd">
+												<td scope="row">
+													<a href="<?=HOST?>myorder?id=<?=$order->id?>">
+														Заказ №
+														<?=$order->id?>
+													</a>
+												</td>
+												<td>
+													<?=rus_date("j F Y H:i", strtotime($order->date_time))?>
+												</td>
+												<td>
+													<?=$order->total_price?> рублей
+												</td>
+												<?php if ( $order->payment == 'yes'){ ?>
+												<td class="text-success">Оплачен</td>
+												<?php } else { ?>
+												<td class="text-danger">Не оплачен</td>
+												<?php } ?>
+											</tr>
+											<?php foreach ($orderItems as $item) { ?> 
+												<tr>
+													<td></td>
+													<td scope="row">
+														<a href="<?=HOST . 'shop/item?id=' . $item->id?>">
+															<?=$item->title?>
+														</a>
+													</td>
+													<td>
+														<?=$item->count?> шт.
+													</td>
+													<td>
+														<?php echo price_format($item->price); ?> рублей за шт.
+													</td>
+												</tr>
+											<?php } ?>
+										<?php } ?>
+									</tbody>  
+								</table>
+							<?php } else { ?>
+								<div class="mt-15">У вас еще нет заказов</div>
+							<?php } ?>
+						</div>
 						<h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2>
 						<div class="user-profile-comments">
 

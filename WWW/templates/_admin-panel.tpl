@@ -23,7 +23,7 @@
 			<a href="<?php echo HOST?>blog/categories">
 				<i class="fas fa-folder"></i>Категория
 			</a>
-			<a href="<?php echo HOST?>expirience-edit">
+			<a href="<?php echo HOST?>works/add-work">
 				<i class="fas fa-plus-circle"></i>Работа
 			</a>
 			<a href="<?php echo HOST?>about">
@@ -34,6 +34,9 @@
 			</a>
 			<a href="<?php echo HOST?>messages">
 				<i class="fas fa-envelope"></i>Сообщения
+			</a>
+			<a href="<?php echo HOST?>shop/orders">
+				<i class="fas fa-shopping-cart"></i>Заказы
 			</a>
 		</nav>
 	</div>

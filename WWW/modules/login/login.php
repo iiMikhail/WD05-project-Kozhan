@@ -14,7 +14,8 @@ if (isset($_POST['enter-button'])) {
 				$_SESSION['role'] = $user->role;
 
 				require ROOT . "modules/shop/_cart-update-in-login.php";
-				header('Location: /');
+				
+				header("Location: " . HOST . "/");
 				exit();
 			} else {
 				$errors[] = ['title' => 'Неверный пароль'];

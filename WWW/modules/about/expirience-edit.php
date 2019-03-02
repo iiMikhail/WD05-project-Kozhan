@@ -15,10 +15,6 @@ if (isset($_POST['save-button'])) {
 	R::store($workplaces);
 }
 $Fworkplace = R::find('workplaces');
-// echo "<pre>";
-// print_r($Fworkplace);
-// echo "</pre>";
-
 
 ob_start(); 
 include ROOT . "templates/_header.tpl";

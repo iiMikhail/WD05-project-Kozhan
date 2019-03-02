@@ -3,7 +3,9 @@
 			<div class="works-title-left">
 				<h1 class="works-title-text"><span class="works-title-text--bold">Работы</span>, которые сделал я и моя команда</h1>
 			</div>
+			<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
 			<div class="works-title-right"><a class="button button-edit" href="<?php echo HOST?>works/add-work">Добавить работу</a></div>
+			<?php } ?>
 		</div>
 		<div class="row ml-0 mr-0">
 		<?php foreach ($work as $work) { ?>

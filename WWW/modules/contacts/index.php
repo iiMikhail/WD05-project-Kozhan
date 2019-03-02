@@ -1,5 +1,5 @@
 <?php
-$title = "Блог - Главная";
+$title = "Контакты - Главная";
 $contacts = R::load('contacts', 1);
 
 

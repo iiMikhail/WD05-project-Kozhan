@@ -3,7 +3,6 @@ $title = "Сообщения";
 $messages = R::find('messages', 'ORDER BY id DESC');
 @$messageDel = R::load('messages', $_GET['id']);
  if(@$_GET['type'] == 'del') {
-		// header('location: ' . HOST . 'categories/all?id=' . $category);
 	R::trash($messageDel);
 	header('Location: /messages');
 }

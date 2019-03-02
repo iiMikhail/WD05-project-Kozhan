@@ -2,6 +2,8 @@
 $title = "Профиль";
 
 $userInfo = $_SESSION['logged-user'];
+$userId = $userInfo['id'];
+$orders = R::find('orders', 'user_id=' . $userId);
 
  $sql = 'SELECT comments.text, comments.date_time, comments.post_id, comments.user_id, posts.id, posts.title
 FROM comments JOIN posts 

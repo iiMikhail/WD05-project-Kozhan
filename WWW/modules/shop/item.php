@@ -1,4 +1,4 @@
- <?php
+<?php
 
 $itemDelete = R::load('goods', $_GET['id']);
 

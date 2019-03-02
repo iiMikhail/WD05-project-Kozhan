@@ -20,7 +20,9 @@
 							<select name="postCat" class="input form-control form-control-lg">
 							<option selected="selected">Выберите категорию</option>
 							<?php foreach ($categories as $category) { ?>
-								<option><?=$category['cat_title']?></option>
+								<option value="<?=$category['id']?>">
+									<?=$category['cat_title']?>
+								</option>
 							<?php } ?>
 							</select>
 						</div>

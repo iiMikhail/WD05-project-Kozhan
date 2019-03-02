@@ -1,7 +1,5 @@
- <?php 
+<?php 
 $title = "Добавить товар";
-// $posts = R::find('posts', 'ORDER BY id DESC');
-// $categories = R::find('categories', 'ORDER BY cat_title');
 
 if(@$_SESSION['logged-user']['role'] != 'admin') {
 	header('location: /');

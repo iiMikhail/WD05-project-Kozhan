@@ -6,7 +6,6 @@ $category = R::load('categories', $_GET['id']);
 $category->cat_title = htmlentities($_POST['cattitle']);
 R::store($category);
 
-
 ob_start();
 include ROOT . "templates/_header.tpl";
 include ROOT . "templates/categories/edit.tpl";

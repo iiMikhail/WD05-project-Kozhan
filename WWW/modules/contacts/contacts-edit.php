@@ -1,5 +1,5 @@
 <?php
-$title = "Контакты";
+$title = "Контакты - редактировать";
 $contacts = R::load('contacts', 1);
 if (isset($_POST['savebutton'])) {
 	$contacts->firstName=htmlentities($_POST['first-name']);

@@ -1,5 +1,5 @@
- <?php 
-$title = "Добавить товар";
+<?php 
+$title = "Редактировать товар";
 
 if(@$_SESSION['logged-user']['role'] != 'admin') {
 	header('location: /');

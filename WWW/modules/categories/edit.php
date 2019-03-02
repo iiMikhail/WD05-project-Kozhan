@@ -2,7 +2,6 @@
 $title = "Добавить категорию";
 $category = R::load('categories', $_GET['id']);
 
-$errors[] = array();
 if ($_POST['add-cat'] = '') {
 	$errors = ['title' => 'Введите имя категории'];
 }

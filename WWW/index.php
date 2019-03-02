@@ -14,8 +14,12 @@ if(@$_SESSION['logged-user']['role'] == 'admin') {
 } else {
 	@$userRole = $_SESSION['logged-user']['role'];
 }
-
 $errors = array();
+
+
+// include ROOT . "modules/shop/_addtocarttemplate.php";
+
+
 
 /**************************
 
@@ -148,9 +152,22 @@ switch ( $uri[0] ) {
 	case 'shop/removefromcart':
 		include ROOT . "modules/shop/removefromcart.php";
 		break;
+	// ::::::: ORDERS :::::::::::
+	case 'shop/order-create':
+		include ROOT . "modules/shop/order-create.php";
+		break;
+	case 'shop/order-created-success':
+		include ROOT . "modules/shop/order-created-success.php";
+		break;
+	case 'shop/orders':
+		include ROOT . "modules/shop/orders.php";
+		break;
+	case 'shop/order':
+		include ROOT . "modules/shop/order.php";
+		break;
 
 	default:
-		include "modules/main/index.php";
+		echo "<p>Page not found</p><p>Error 404</p>";
 		break;
 }
 

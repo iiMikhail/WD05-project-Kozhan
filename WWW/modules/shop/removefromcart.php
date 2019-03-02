@@ -1,4 +1,4 @@
- <?php 
+<?php 
 $currentItemId = intval($_POST['itemId']);
 if (isset($_COOKIE['cart'])) {
 	$cartLocal = json_decode($_COOKIE['cart'], true);

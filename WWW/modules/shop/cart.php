@@ -1,6 +1,5 @@
-  <?php
+<?php
 $title = "Магазин - Корзина";
-
 
 if (isset($_COOKIE['cart'])) {
 	if (count(json_decode($_COOKIE['cart'], true)) > 0) {
@@ -26,7 +25,7 @@ $cartGoodsTotalPrice = 0;
 foreach ($cartGoods as $item) {
 	$cartGoodsTotalPrice += $cartItemsArray[$item['id']]*$item['price'];
 }
-	
+
 ob_start();
 include ROOT . "templates/_header.tpl";
 include ROOT . "templates/shop/cart.tpl";

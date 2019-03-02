@@ -1,5 +1,5 @@
 <?php
-$title = "Работы - главная";
+$title = "Добавить работу";
 $categories = R::find('workcategory', 'ORDER BY name');
 
 if (isset($_POST['linkGithub'])) {

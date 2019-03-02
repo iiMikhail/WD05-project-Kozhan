@@ -197,6 +197,12 @@ hr {
   background-color: #bee5eb;
 }
 
+.table-hd,
+.table-hd > th,
+.table-hd > td {
+  background-color: #EEEEEE;
+}
+
 .table-hover .table-info:hover {
   background-color: #abdde5;
 }

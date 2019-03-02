@@ -14,13 +14,10 @@ if (isset($_POST['add-post'])) {
 	if (trim($_POST['postCat']) == '') {
 		$errors[] = ['title' => 'Выберите категорию']; 
 	} 
-	echo "<pre>";
-	print_r($errors);
-	echo "</pre>";
 	if (empty($errors)) {
 		$post = R::dispense('posts');
 		$post->title = htmlentities($_POST['post-name']);
-		$post->categoryId = htmlentities($_POST['catId']);
+		$post->categoryId = htmlentities($_POST['postCat']);
 		$post->text = $_POST['post-desc'];
 		$post->dateTime = R::isoDateTime();
 		$post->autorId = $_SESSION['logged-user']['id'];
@@ -48,41 +45,34 @@ if (isset($_POST['add-post'])) {
 			 if ($fileErrorMsg == 1) {
 				$errors[] = ['title' => 'Неизвестная ошибка'];
 			 }
+			if (empty($errors)) {
+				$postFolderLocation = ROOT . 'usercontent/blog/post/';
+				$postFolderLocationSmall = ROOT . 'usercontent/blog/post/small/';
 
-			$postFolderLocation = ROOT . 'usercontent/blog/post/';
-			$postFolderLocationSmall = ROOT . 'usercontent/blog/post/small/';
+				$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
+				$uploadfile = $postFolderLocation . $db_file_name;
+				$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
 
-			$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
-			$uploadfile = $postFolderLocation . $db_file_name;
-			$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
-			
-			if ($moveResult != true) {
-				$errors[] = ['title' => 'Ошибка сохранения файла' ];
+				include_once( ROOT . "/libs/image_resize_imagick.php");
+
+				$target_file =  $postFolderLocation . $db_file_name;
+				$wmax = 920;
+				$hmax = 620;
+				$img = createThumbnailBig($target_file, $wmax, $hmax);
+				$img->writeImage($target_file);
+
+				$post->postimg = $db_file_name;
+
+				$target_file =  $postFolderLocation . $db_file_name;
+				$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
+				$wmax = 320;
+				$hmax = 140;
+				$img = createThumbnailCrop($target_file, $wmax, $hmax);
+				$img->writeImage($resized_file);
+
+				$post->postimgsmall = "320-" . $db_file_name;
 			}
-
-			include_once( ROOT . "/libs/image_resize_imagick.php");
-
-			$target_file =  $postFolderLocation . $db_file_name;
-			// $resized_file = $avatarFolderLocation . $db_file_name;
-			$wmax = 920;
-			$hmax = 620;
-			$img = createThumbnailBig($target_file, $wmax, $hmax);
-			$img->writeImage($target_file);
-
-			$post->postimg = $db_file_name;
-
-			$target_file =  $postFolderLocation . $db_file_name;
-			$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
-			$wmax = 320;
-			$hmax = 140;
-			$img = createThumbnailCrop($target_file, $wmax, $hmax);
-			$img->writeImage($resized_file);
-
-			$post->postimgsmall = "320-" . $db_file_name;
-
 		 }
-
-
 		R::store($post);
 		header('location: /blog');
 		exit();

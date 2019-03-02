@@ -1,4 +1,4 @@
- <?php
+<?php
 $title = "Страница одной работы";
 
 $work = R::load('works', $_GET['id']);
