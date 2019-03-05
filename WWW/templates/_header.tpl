@@ -54,8 +54,10 @@
 				<a class="nav__link" 
 				href="<?php echo HOST?>works">Работы</a>
 
-				<a class="nav__link" 
-				href="<?php echo HOST?>shop">Магазин</a>
+				<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+					<a class="nav__link" 
+					href="<?php echo HOST?>shop">Магазин</a> 
+				<?php } ?>
 
 				<a class="nav__link" 
 				href="<?php echo HOST?>blog">Блог</a>

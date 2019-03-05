@@ -165,6 +165,20 @@ switch ( $uri[0] ) {
 	case 'shop/order':
 		include ROOT . "modules/shop/order.php";
 		break;
+	// ::::::: PAYMENT SYSTEMS :::::::::::
+	case 'shop/payment-choice':
+		include ROOT . "modules/payment/payment-choice.php";
+		break;
+	case 'shop/payment-yandex':
+		include ROOT . "modules/payment/payment-yandex.php";
+		break;
+	case 'shop/after-payment':
+		include ROOT . "modules/payment/after-payment.php";
+		break;
+	case 'shop/payment-yandex-notify':
+		include ROOT . "modules/payment/payment-yandex-notify.php";
+		break;
+		
 
 	default:
 		echo "<p>Page not found</p><p>Error 404</p>";

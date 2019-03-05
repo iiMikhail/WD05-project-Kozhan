@@ -29,7 +29,7 @@
 							</div>
 						</div>
 						<div class="mb-30">
-							<div class="title-1">Мои заказы</div>
+							<div id="orders" class="title-1">Мои заказы</div>
 						  	<?php if ($orders != '') { ?>
 								<table class="table">
 									<tbody>
@@ -47,11 +47,12 @@
 												</td>
 												<td>
 													<?=$order->total_price?> рублей
-												</td>
-												<?php if ( $order->payment == 'yes'){ ?>
-												<td class="text-success">Оплачен</td>
+												</td> 
+												<?php if ( $order->payment == 'payed'){ ?>
+												<td class="text-success">Оплачен</td><td></td>
 												<?php } else { ?>
 												<td class="text-danger">Не оплачен</td>
+												<td><a class="button-profile-green" href="shop/payment-choice?id=<?=$order->id?>">Оплатить</a></td>
 												<?php } ?>
 											</tr>
 											<?php foreach ($orderItems as $item) { ?> 
@@ -68,6 +69,7 @@
 													<td>
 														<?php echo price_format($item->price); ?> рублей за шт.
 													</td>
+													<td></td>
 												</tr>
 											<?php } ?>
 										<?php } ?>

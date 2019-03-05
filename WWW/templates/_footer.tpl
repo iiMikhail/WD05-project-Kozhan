@@ -26,6 +26,9 @@
 							<a href="http://instagram.com/sir_minsu" target="_blank"><span class="social-icon"><i class="fab fa-instagram"></i></span></a>
 
 							<a href="https://www.facebook.com/gospodinminsu" target="_blank"><span class="social-icon"><i class="fab fa-facebook-f"></i></span></a>
+
+							<a href="https://www.behance.net/nightwolf01f8a" target="_blank"><span class="social-icon"><i class="fab fa-behance"></i></span></a>
+
 						</div>
 					</div>
 				</div>

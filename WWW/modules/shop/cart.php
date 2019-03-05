@@ -1,6 +1,11 @@
 <?php
 $title = "Магазин - Корзина";
 
+if (!isset($_COOKIE['cart'])) {
+	header("location: " . HOST);
+	die(); 
+}
+
 if (isset($_COOKIE['cart'])) {
 	if (count(json_decode($_COOKIE['cart'], true)) > 0) {
 		$cartItems = array();
