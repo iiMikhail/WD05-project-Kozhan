@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Фев 26 2019 г., 03:25
+-- Время создания: Мар 05 2019 г., 12:19
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.2.8
 
@@ -32,7 +32,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `name`, `text`, `photo`) VALUES
-(1, 'Михаил Кожан', '<p>Я веб разработчик из Санкт-Петербурга. Мне 28 лет (наверное).</p>\r\n\r\n<p>Занимаюсь разработкой современных сайтов и приложенийю Мне нравится делать интересные и современные проекты.</p>\r\n\r\n<p>Этот сайт я сделал в рамкаобучения в школе онлайн обучения WebCademy. Чуть позже освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво!</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2><strong>Что я умею </strong></h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Меня привлекает Frontend разработка, это не только моя работа, но и хобби. Также знаком и могу решать несложные задачи на Backend. Знаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp</p>\r\n', '956502171363.png');
+(1, 'Михаил Кожан', '<p>Я веб-дизайнер и разработчик из Санкт-Петербурга. Мне 28 лет.</p>\r\n\r\n<p>Занимаюсь разработкой современных сайтов. Мое основное кредо - сделать сайт, который может достойно представлять человека, товар или услугу в сети, выполняя свои функции и решая задачи, в него заложенные.</p>\r\n\r\n<p>Меня привлекает процесс созидание во всех его проявлениях. К моим профессиональным интересам можно отнести:</p>\r\n\r\n<ul>\r\n  <li>Сбор и формализация требований,</li>\r\n  <li>Прототипирование,</li>\r\n  <li>Веб-дизайн,</li>\r\n  <li>Верстка,</li>\r\n <li>Бекенд,</li>\r\n  <li>Загрузка и установление на хостинг.</li>\r\n</ul>\r\n\r\n<p>Я надеюсь, что этот сайт поможет вам получить представление обо мне и моих компетенциях. Так же, вы всегда можете связаться со мной лично, любым удобным для вас способом.</p>\r\n\r\n<h2><strong>Что я умею</strong></h2>\r\n\r\n<p>Все вышеперечисленное является и хобби и работой. Вот более подробный список того, что я умею:</p>\r\n\r\n<ul>\r\n <li>Сбор требований к проекту, составление user-map,</li>\r\n <li>Прототипирование проекта (от скетча к прототипу),</li>\r\n  <li>Веб-дизайн (Flat, Material, Apple),</li>\r\n  <li>Frontend разработка,</li>\r\n <li>Простой backend для сайта,</li>\r\n <li>Все задачи по разработке решаю с использованием современного workflow, работаю с репозиториями git и сборкой проекта на gulp.</li>\r\n</ul>\r\n', '956502171363.png');
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,8 @@ CREATE TABLE `goods` (
 --
 
 INSERT INTO `goods` (`id`, `name`, `price`, `price_old`, `description`, `date_time`, `autor_id`, `itemimg`, `itemimgsmall`) VALUES
-(3, 'Еще товары Эппл', 1200, 3000, '<p>Тут описание о продаже товаров эппл</p>\r\n', '2019-02-24 20:11:13', 102, '772711953173.jpg', '320-772711953173.jpg');
+(3, 'Еще товары Эппл', 1200, 3000, '<p>Тут описание о продаже товаров эппл</p>\r\n', '2019-02-24 20:11:13', 102, '772711953173.jpg', '320-772711953173.jpg'),
+(4, 'Товар 2', 100, 1234, '<p>Товар</p>\r\n', '2019-02-27 14:02:58', 102, '832684975341.jpg', '320-832684975341.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,7 +154,40 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`id`, `name_user`, `email`, `message`, `file`, `original_file`, `date_time`) VALUES
 (3, 'Саша', '12345@mail.ru', 'Давно не виделись, как оно?', '862312255896.jpg', '3 (1).jpg', '2019-02-13 23:09:30'),
-(4, 'Вася', '987@mail.ru', 'Возьмешься за работу?', '421258465209.jpg', '1.jpg', '2019-02-13 23:10:37');
+(4, 'Вася', '987@mail.ru', 'Возьмешься за работу?', '421258465209.jpg', '1.jpg', '2019-02-13 23:10:37'),
+(5, 'Имя', '12345@mail.ru', 'Тест нотификации', '919033292063.png', 'php1.png', '2019-02-26 11:38:35');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `secondname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `items` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `items_count` int(11) UNSIGNED DEFAULT NULL,
+  `total_price` int(11) UNSIGNED DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `payment` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `secondname`, `email`, `phone`, `items`, `user_id`, `items_count`, `total_price`, `status`, `payment`, `date_time`) VALUES
+(8, 'Михаил', 'Кожан', '123@mail.ru', '8 (981) 743-05-42', '[{\"id\":\"3\",\"price\":\"1200\",\"count\":2,\"title\":\"\\u0415\\u0449\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b \\u042d\\u043f\\u043f\\u043b\"},{\"id\":\"4\",\"price\":\"100\",\"count\":1,\"title\":\"\\u0422\\u043e\\u0432\\u0430\\u0440 2\"}]', 102, 3, 2500, 'new', 'no', '2019-03-03 01:26:58'),
+(9, 'Михаил', 'Кожан', '123@mail.ru', '+7 (981) 743-05-42', '[{\"id\":\"4\",\"price\":\"100\",\"count\":3,\"title\":\"\\u0422\\u043e\\u0432\\u0430\\u0440 2\"}]', 102, 3, 300, 'new', 'no', '2019-03-03 01:43:40'),
+(10, 'Михаил', 'Кожан', '123@mail.ru', '8 (981) 743-05-42', '[{\"id\":\"3\",\"price\":\"1200\",\"count\":1,\"title\":\"\\u0415\\u0449\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b \\u042d\\u043f\\u043f\\u043b\"}]', 102, 1, 1200, 'new', 'no', '2019-03-03 19:28:35'),
+(11, 'Михаил', 'Кожан', '123@mail.ru', '8 (981) 743-05-42', '[{\"id\":\"3\",\"price\":\"1200\",\"count\":2,\"title\":\"\\u0415\\u0449\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b \\u042d\\u043f\\u043f\\u043b\"}]', 102, 2, 2400, 'new', 'no', '2019-03-03 20:00:03'),
+(12, 'Михаил', 'Кожан', '123@mail.ru', '8 (981) 743-05-42', '[{\"id\":\"3\",\"price\":\"1200\",\"count\":1,\"title\":\"\\u0415\\u0449\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u044b \\u042d\\u043f\\u043f\\u043b\"}]', 102, 1, 1200, 'new', 'no', '2019-03-03 23:25:19');
 
 -- --------------------------------------------------------
 
@@ -180,7 +214,7 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `title`, `text`, `date_time`, `autor_id`, `post_img`, `postimg`, `postimgsmall`, `category_id`, `update_time`) VALUES
 (36, 'Это новый пост', 'Текст поста', '2019-02-12 23:44:42', 102, NULL, '541591257419.jpg', '320-541591257419.jpg', 5, NULL),
-(38, 'Еще один новый пост', '<p>Тут текст поста</p>\r\n', '2019-02-22 17:42:13', 102, NULL, '661269027862.jpg', '320-661269027862.jpg', 5, NULL),
+(38, 'Еще один новый пост123321', '<p>Тут текст поста</p>\r\n', '2019-02-22 17:42:13', 102, NULL, '661269027862.jpg', '320-661269027862.jpg', 12, '2019-03-02 02:45:42'),
 (39, 'Еще тестовый пост', '<p>123</p>\r\n', '2019-02-23 09:52:06', 102, NULL, '186074032650.jpg', '320-186074032650.jpg', 5, NULL),
 (40, 'И еще Новый пост', '<p>23</p>\r\n', '2019-02-23 09:52:29', 102, NULL, '755840408681.jpg', '320-755840408681.jpg', 5, NULL);
 
@@ -241,7 +275,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `firstname`, `lastname`, `country`, `city`, `recovery_code_times`, `recovery_code`, `avatar`, `avatar_small`, `cart`) VALUES
-(102, '123@mail.ru', '$2y$10$NfvgAdij7GcnRWO8yXmBf.bc8B/MvaHwJPFP16EUFJCe/j9AXX3IK', 'admin', 'Михаил', 'Кожан', 'Россия', 'Хабаровск', 3, '2ce4fhVWyUSlb0d', '532560761453.png', '48-532560761453.png', '{\"3\":21}'),
+(102, '123@mail.ru', '$2y$10$NfvgAdij7GcnRWO8yXmBf.bc8B/MvaHwJPFP16EUFJCe/j9AXX3IK', 'admin', 'Михаил', 'Кожан', 'Россия', 'Хабаровск', 3, '2ce4fhVWyUSlb0d', '532560761453.png', '48-532560761453.png', '{\"3\":1}'),
 (103, '1232@mail.ru', '$2y$10$Ga.JmZkLO1m1Q0VI.QrLdek2z9JOHETz.0zfMVdljNB3HEPjDwVY6', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (104, '12311@mail.ru', '$2y$10$5hHnykjv0UWDCRHqUXTXCOXIk.3bBkO1OYtN7ybAp9COnHTcKqDfG', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (106, 'mikhail.kozhan@gmail.com', '$2y$10$9k1MYYmtCwmObUpsstxtfOBRQPIyg7ITS9pmyo5ETcRSxdKLVKqmu', 'user', NULL, NULL, NULL, NULL, 3, 'FGTaXRUVlASxuom', NULL, NULL, NULL),
@@ -319,7 +353,7 @@ INSERT INTO `works` (`id`, `name`, `description`, `result`, `technology`, `proje
 (18, 'Еще одна работа', 'Тест', 'Тест', 'Тест', 'htttp://project', 'htttp://github', '628142571148.png', '360-628142571148.png', NULL, NULL, NULL),
 (19, 'Еще одна работа', 'тест', 'тест', 'тест', 'htttp://project', 'htttp://github', '845635493890.jpg', '360-845635493890.jpg', NULL, NULL, NULL),
 (20, 'Тест работы с автором', 'Описание работы с автором', 'Результат работы с автором', 'Технологии работы с автором', 'htttp://project', 'htttp://github', '766442408866.jpg', '360-766442408866.jpg', 102, NULL, NULL),
-(21, 'Работа с категорией +100500', '&lt;p&gt;Тут новый текст&lt;/p&gt;\r\n', '&lt;p&gt;Тут новый текст&lt;/p&gt;\r\n', '&lt;p&gt;Текст какой-то&lt;/p&gt;\r\n', 'htttp://project', 'htttp://github', '644755118861.jpg', '360-644755118861.jpg', 102, '2019-02-19 20:12:56', '4');
+(21, 'РРРРабота с категорией +100500', '<p>Тут новый текст</p>\r\n', '<p>Тут новый текст</p>\r\n', '<p>Текст какой-то</p>\r\n\r\n<p>фвыаф</p>\r\n\r\n<p>в</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>ф</p>\r\n\r\n<p>ываф</p>\r\n', 'htttp://project', 'htttp://github', '644755118861.jpg', '360-644755118861.jpg', 102, '2019-02-19 20:12:56', '4');
 
 --
 -- Индексы сохранённых таблиц
@@ -363,6 +397,13 @@ ALTER TABLE `goods`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_orders_user` (`user_id`);
 
 --
 -- Индексы таблицы `posts`
@@ -434,13 +475,19 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT для таблицы `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
