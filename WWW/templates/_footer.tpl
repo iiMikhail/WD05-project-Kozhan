@@ -28,19 +28,13 @@
 							<a href="https://www.facebook.com/gospodinminsu" target="_blank"><span class="social-icon"><i class="fab fa-facebook-f"></i></span></a>
 
 							<a href="https://www.behance.net/nightwolf01f8a" target="_blank"><span class="social-icon"><i class="fab fa-behance"></i></span></a>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-	<script src="<?php echo HOST?>templates/style/libs/jquery/jquery.min.js"></script><!-- endbuild -->
-	<!-- build:jsVendor js/vendor.js -->
-	<script src="<?php echo HOST?>templates/style/libs/jquery-custom-scrollbar/jquery.custom-scrollbar.js"></script><!-- endbuild -->
-	<script src="<?php echo HOST?>templates/style/js/input-file.js"></script>
+	<script src="<?php echo HOST?>templates/style/libs/jquery/jquery.min.js"></script>
 	
-	<!-- build:jsMain js/main.js -->
 	<script src="<?php echo HOST?>templates/style/js/main.js"></script>
-	<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIr67yxxPmnF-xb4JVokCVGgLbPtuqxiA&amp;callback=initMap"></script>
 	<script defer="defer" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

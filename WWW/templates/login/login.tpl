@@ -23,15 +23,15 @@
 									name="password" 
 									id="input-password" 
 									type="password" 
-									placeholder="Пароль" 
+									placeholder="Пароль"  
 									value="<?=@$_POST['password']?>" />
 							<div class="autorization-content-form-help mb-30">
-								<label class="form__label-checkbox">
-									<input 	class="form__input-checkbox" 
-											type="checkbox" 
-											checked="checked" />
-										<span class="form__checkbox"> 
-										</span>Запомнить меня </label>
+										<label class="form__label-checkbox">
+											<input name="remember_me" class="form__input-checkbox" type="checkbox" checked="checked" />
+											<span class="form__checkbox">
+											</span>
+											Запомнить меня 
+										</label>
 										<a class="link" href="lost-password">Забыл пароль</a></div>
 							<div class="autorization-content-form-button">
 								<input class="button button-enter" type="submit" name="enter-button" value="Войти" />

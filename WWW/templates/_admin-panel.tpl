@@ -33,7 +33,7 @@
 				<i class="fas fa-edit"></i>Контакты
 			</a>
 			<a href="<?php echo HOST?>messages">
-				<i class="fas fa-envelope"></i>Сообщения
+				<i class="fas fa-envelope"></i>Сообщения <?php if ($unreadMessages > 0) { ?><span class="notify-count"><?=$unreadMessages?></span><?php } ?>
 			</a>
 			<a href="<?php echo HOST?>shop/orders">
 				<i class="fas fa-shopping-cart"></i>Заказы

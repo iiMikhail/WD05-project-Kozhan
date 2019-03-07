@@ -1,3 +1,17 @@
+.notify-count {
+  padding: 2px 8px;
+  background: #e57373;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  color: #ecf0f1;
+  margin-left: 3px;
+  cursor: pointer;
+}
+.notify-count:hover {
+  background: #ef5350;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -7738,5 +7752,21 @@ a.card__select {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+}
+ .form__checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #1e6791;
+  border-radius: 2px;
+  background-image: url("img/form/check.png");
+  background-repeat: no-repeat;
+  background-position: center -10px;
+  -webkit-transition: 0.1s ease-out;
+  -o-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+  vertical-align: text-bottom;
+  margin-right: 10px;
+  outline: none;
 }
 /*# sourceMappingURL=bootstrap.css.map */

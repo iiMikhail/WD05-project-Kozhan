@@ -520,7 +520,7 @@ body {
   height: 20px;
   background: #1e6791;
   border-radius: 2px;
-  background-image: url("../img/form/check.png");
+  background-image: url("img/form/check.png");
   background-repeat: no-repeat;
   background-position: center -10px;
   -webkit-transition: 0.1s ease-out;

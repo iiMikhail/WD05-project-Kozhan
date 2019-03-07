@@ -4,9 +4,23 @@ require('db.php');
 require('libs/functions.php');
 $errors[] = array();
 $success[] = array();
-session_start();
+session_start(); 
 @$userInfo = $_SESSION['logged-user'];
 
+// Проверка токена для "Запомнить меня"
+if (isset($_COOKIE['password_cookie_token'])) {
+	$user = R::findOne('users', 'password_cookie_token = ?', array($_COOKIE['password_cookie_token']));
+	if ($user) {
+		$_SESSION['logged-user'] = $user;
+		$_SESSION['login'] = '1';
+		$_SESSION['role'] = $user->role;
+	}
+}
+ 
+// Проверка новых сообщений
+$unreadMessages = R::count('messages', 'read_status = ?', ['0']);
+
+// Проверка администратора
 if(@$_SESSION['logged-user']['role'] == 'admin') {
 	$userRole = 'Администратор';
 } elseif(@$_SESSION['logged-user']['role'] == 'user') {
@@ -15,11 +29,6 @@ if(@$_SESSION['logged-user']['role'] == 'admin') {
 	@$userRole = $_SESSION['logged-user']['role'];
 }
 $errors = array();
-
-
-// include ROOT . "modules/shop/_addtocarttemplate.php";
-
-
 
 /**************************
 

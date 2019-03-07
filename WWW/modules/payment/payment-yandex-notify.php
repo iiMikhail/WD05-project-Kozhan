@@ -30,7 +30,7 @@ if ($hash == $_POST['sha1_hash']) {
 	$order = R::load('orders', $_POST['label']);
 	if ($_POST['codepro'] == 'true') {
 		$order->payment = 'codepro';
-	} 
+	}  
 	if ($_POST['unaccepted'] == 'true') {
 		$order->payment = 'unaccepted';
 	}

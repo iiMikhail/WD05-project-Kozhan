@@ -13,6 +13,20 @@ if (isset($_POST['enter-button'])) {
 				$_SESSION['login'] = '1';
 				$_SESSION['role'] = $user->role;
 
+					// Функция "Запомнить меня"
+				if(isset($_POST["remember_me"])){
+					// Создаем токен
+					$password_cookie_token = md5( $user['id'] . $user['password'] . time() );
+					// добавляем созданый токен в БД
+					$user->password_cookie_token = $password_cookie_token;
+					R::store($user);
+					setcookie('password_cookie_token', $password_cookie_token, time() + (1000*60*60*24*30));  
+				} else {
+					$user->password_cookie_token = '';
+					R::store($user);
+					setcookie('password_cookie_token', '', time() - 3600);
+				}
+
 				require ROOT . "modules/shop/_cart-update-in-login.php";
 				
 				header("Location: " . HOST . "/");

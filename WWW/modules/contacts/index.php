@@ -1,17 +1,27 @@
 <?php
 $title = "Контакты - Главная";
 $contacts = R::load('contacts', 1);
-
+ 
 
 if (isset($_POST['save-button'])) {
-	$message = R::dispense('messages');
+	if (trim($_POST['name-user']) == '') {
+		$errors[] = ['title' => 'Введите ваше имя']; 
+	}
+	if (trim($_POST['email-user']) == '') {
+		$errors[] = ['title' => 'Введите ваш e-mail']; 
+	} 
+	if (trim($_POST['user-message']) == '') {
+		$errors[] = ['title' => 'Выберите текст сообщения'];  
+	} 
+	if (empty($errors)) {
+		$message = R::dispense('messages');
+		$message->nameUser = htmlentities($_POST['name-user']);
+		$message->email = htmlentities($_POST['email-user']);
+		$message->message = htmlentities($_POST['user-message']);
+		$message->dateTime = R::isoDateTime();
+		$message->readStatus = false;
 
-	$message->nameUser = htmlentities($_POST['name-user']);
-	$message->email = htmlentities($_POST['email-user']);
-	$message->message = htmlentities($_POST['user-message']);
-	$message -> dateTime = R::isoDateTime();
-
-	if (isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] != '') {
+		if (isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] != '') {
 
 			// Переменные
 			$fileName = $_FILES['file']['name'];
@@ -33,20 +43,21 @@ if (isset($_POST['save-button'])) {
 			if ($fileErrorMsg == 1) {
 				$errors[] = ['title' => 'Неизвестная ошибка'];
 			}
-			$fileFolderLocation = ROOT . 'usercontent/upload-files/';
-			$uploadfile = $fileFolderLocation . $db_file_name;
-			$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
-			if ($moveResult != true) {
-				$errors[] = ['title' => 'Ошибка сохранения файла' ];
-			}
-			$message->file = $db_file_name;
-			$message->originalFile = $fileName;
+			if (empty($errors)) {
+				$fileFolderLocation = ROOT . 'usercontent/upload-files/';
+				$uploadfile = $fileFolderLocation . $db_file_name;
+				$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
+				$message->file = $db_file_name;
+				$message->originalFile = $fileName;
+			} 
+		}
+		R::store($message);
+		$unreadMessages = 0;
+		header('location: ' . HOST . "contacts?result=message-sent");
+		exit();
+	}
+}
 
-	R::store($message); 
-	header('location: ' . HOST . "contacts?result=message-sent");
-	exit();  
-}
-}
 
 
 ob_start();

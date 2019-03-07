@@ -49,7 +49,7 @@
 													<?=$order->total_price?> рублей
 												</td> 
 												<?php if ( $order->payment == 'payed'){ ?>
-												<td class="text-success">Оплачен</td><td></td>
+												<td class="text-su`ccess">Оплачен</td><td></td>
 												<?php } else { ?>
 												<td class="text-danger">Не оплачен</td>
 												<td><a class="button-profile-green" href="shop/payment-choice?id=<?=$order->id?>">Оплатить</a></td>

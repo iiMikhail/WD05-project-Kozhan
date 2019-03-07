@@ -1,10 +1,8 @@
 <div class="container pt-55 pb-80">
-	<?php if (isset($_GET['result'])) {
-		include ROOT . "templates/categories/_results.tpl";
-	} ?>
+	
 	<div class="row">   
 		<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
-		<div class="col-12 clearfix mb-30"><a class="button float-right" href="<?php echo HOST?>messages">Сообщения</a><a class="button button-edit float-right mr-20" href="<?php echo HOST?>contacts-edit">Редактировать</a></div> <?php  } ?>
+		<div class="col-12 clearfix mb-30"><a class="button float-right" href="<?php echo HOST?>messages">Сообщения</a><a class="button button-edit float-right mr-20" href="<?php echo HOST?>contacts-edit">Редактировать</a></div> <?php  } ?> 
 		<div class="col-5">
 			<h1 class="title-general mb-30">Контакты</h1>
 			<div class="row justify-content-between">
@@ -41,9 +39,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>  
 		<div class="col-4 offset-1">
 			<div class="title-general mb-40">Связаться со мной</div>
+			<?php if (isset($_GET['result'])) { 
+				include ROOT . "templates/categories/_results.tpl";
+			} ?>
+			<?php include ROOT . "templates/_errors.tpl" ?>
 			<form 	enctype="multipart/form-data" 
 				  	class="feedback-form" method="POST" 
 				  	action="<?php echo HOST?>contacts">
@@ -58,7 +60,6 @@
 				<input class="button button-save mt-20" type="submit" name="save-button" value="Отправить" />
 			</form>
 		</div>
-	</div>
+	</div> 
 </div>
-<div class="geolocation" id="map"></div>	
-<script src="js/googlemap.js"></script>
+<!-- <div class="geolocation" id="map"></div> -->

@@ -43,25 +43,19 @@
 	<?php } ?>
 		</div>
 		<div class="row">
- 
 			<nav class="nav">
 				<a class="nav__link" 
 				href="<?php echo HOST?>index">Главная</a>
-
 				<a class="nav__link" 
 				href="<?php echo HOST?>about">Обо мне</a>
-
 				<a class="nav__link" 
 				href="<?php echo HOST?>works">Работы</a>
-
 				<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
 					<a class="nav__link" 
 					href="<?php echo HOST?>shop">Магазин</a> 
 				<?php } ?>
-
 				<a class="nav__link" 
 				href="<?php echo HOST?>blog">Блог</a>
-
 				<a class="nav__link" 
 				href="<?php echo HOST?>contacts">Контакты</a>
 			</nav>
