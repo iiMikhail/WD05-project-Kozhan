@@ -1,5 +1,10 @@
 <?php
-$title = "Категории блога";
+$title = "Все категории";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 $cats = R::find('categories', 'ORDER BY cat_title');
 $errors[] = array();

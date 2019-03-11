@@ -1,6 +1,9 @@
  <?php 
 $title = "Магазин - все заказы";
 
+R::exec('UPDATE orders SET read_status = "1" WHERE read_status = 0');
+$unreadOrders = 0;
+
 if($_SESSION['logged-user']['role'] != 'admin') {
 	header("location: " . HOST . "index");
 	exit();

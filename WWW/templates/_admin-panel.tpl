@@ -36,7 +36,7 @@
 				<i class="fas fa-envelope"></i>Сообщения <?php if ($unreadMessages > 0) { ?><span class="notify-count"><?=$unreadMessages?></span><?php } ?>
 			</a>
 			<a href="<?php echo HOST?>shop/orders">
-				<i class="fas fa-shopping-cart"></i>Заказы
+				<i class="fas fa-shopping-cart"></i>Заказы <?php if ($unreadOrders > 0) { ?><span class="notify-count"><?=$unreadOrders?></span><?php } ?>
 			</a>
 		</nav>
 	</div>

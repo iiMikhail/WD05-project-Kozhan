@@ -1,5 +1,11 @@
 <?php
 $title = "Добавить работу";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $categories = R::find('workcategory', 'ORDER BY name');
 
 if (isset($_POST['linkGithub'])) {
@@ -13,6 +19,7 @@ if (isset($_POST['linkGithub'])) {
 	$works->autorid = htmlentities($_SESSION['logged-user']['id']);
 	$works->dateTime = R::isoDateTime();
 	$works->categoryid = htmlentities($_POST['catid']);
+	$works->meta = htmlentities($_POST['meta']);
 	
 	if (($_FILES['file']['name'] != "") && ($_FILES['file']['tmp_name'] != "")) {
 		$fileName = $_FILES['file']['name'];

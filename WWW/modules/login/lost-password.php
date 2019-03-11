@@ -1,7 +1,5 @@
 <?php 
 $title = "Забыл пароль";
-$errors = array();
-$success = array();
 
 if (isset($_POST['enter-button'])) {
 	if (trim($_POST['email']) == '') {

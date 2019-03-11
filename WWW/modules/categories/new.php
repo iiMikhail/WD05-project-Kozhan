@@ -1,5 +1,10 @@
 <?php
-$title = "Добавить категорию";
+$title = "Категории - добавить новую";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 if(isset($_POST['cattitle'])) {
 	if ($_POST['add-cat'] = '') {

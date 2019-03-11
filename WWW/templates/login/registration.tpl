@@ -1,7 +1,23 @@
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(52709323, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52709323" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <body class="registration">
 	<div class="autorization autorization--vertical-position">
 		<div class="autorization-head">
-			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>супер сайт</span></div>
+			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>DD-Life</span></div>
 			<div class="autorization-head-link"><a class="link" href="login">Вход</a></div>
 		</div>
 		<div class="container">
@@ -12,7 +28,7 @@
 						<form class="autorization-content-form" action="registration" method="POST">
 							<?php foreach ($errors as $error) {
 								if (count($error) == 1) { ?>
-								<!-- Однострочная ошибка -->
+								<!-- Однострочная ошибка --> 
 								<div class="notification">
 									<div id="nomail" class="notification__title notification--error mb-20"><?=$error['title']?>
 									</div>
@@ -28,7 +44,7 @@
 								</div>
 								<?php }
 							} ?>
-							<div id="fmail" class="notification__title notification--error notification--with-description">Неверный формат email</div>
+							<div style="display: none" id="fmail" class="notification__title notification--error notification--with-description">Неверный формат email</div>
 							<input class="input mb-10 mt-20" name="email" id="input-reg-email" type="email" placeholder="E-mail" />
 							<input class="input mb-30" name="password" id="input-reg-password" type="password" placeholder="Пароль" />
 							<div class="autorization-content-form-button">
@@ -57,5 +73,4 @@
 			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
 	</script>
 </body>
-
 </html>

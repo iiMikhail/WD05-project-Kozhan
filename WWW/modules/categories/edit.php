@@ -1,5 +1,11 @@
 <?php
-$title = "Добавить категорию";
+$title = "Категории - редактировать";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $category = R::load('categories', $_GET['id']);
 
 if ($_POST['add-cat'] = '') {

@@ -29,7 +29,7 @@ function mbCutStr($string, $lenght, $postfix = '...', $encoding = 'UTF-8'){
 
 function isAdmin(){
 	$result = false;
-	if ( isset($_SESSION['logged_user']) && $_SESSION['login'] == 1 ) {
+	if ( isset($_SESSION['logged-user']) && $_SESSION['login'] == 1 ) {
 		if ($_SESSION['role'] == 'admin') {
 				$result = true;
 		}

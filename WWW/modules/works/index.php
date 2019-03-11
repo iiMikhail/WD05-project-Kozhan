@@ -1,7 +1,13 @@
 <?php 
 $title = "Работы - главная";
 $pagination = pagination('works');
-$work = R::find('works', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
+
+if (isset($_GET) && @$_GET['catid'] != '') {
+	@$work = R::find('works', 'categoryid = ?', array($_GET['catid']));
+} else {
+	$work = R::find('works', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
+}
+
  
 ob_start();
 include ROOT . "templates/_header.tpl";

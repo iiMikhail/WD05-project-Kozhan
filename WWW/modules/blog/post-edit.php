@@ -1,5 +1,10 @@
 <?php
-$title = "Редактировать пост";
+$title = "Блог - редактировать пост";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 $post = R::load('posts', $_GET['id']);
 $categories = R::find('categories', 'ORDER BY cat_title');
@@ -20,6 +25,7 @@ if (isset($_POST['add-post'])) {
 		$post->text = $_POST['post-desc'];
 		$post->updateTime = R::isoDateTime();
 		$post->autorId = $_SESSION['logged-user']['id'];
+		$post->meta = htmlentities($_POST['meta']);
 
 		// Загрузка картинок
 		if (($_FILES['upload-file']['name'] != "") && ($_FILES['upload-file']['tmp_name'] != "")) {
@@ -77,8 +83,8 @@ if (isset($_POST['add-post'])) {
 
 				$target_file =  $postFolderLocation . $db_file_name;
 				$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
-				$wmax = 320;
-				$hmax = 140;
+				$wmax = 360;
+				$hmax = 250;
 				$img = createThumbnailCrop($target_file, $wmax, $hmax);
 				$img->writeImage($resized_file);
 

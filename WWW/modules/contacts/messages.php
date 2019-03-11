@@ -1,8 +1,14 @@
 <?php
 $title = "Сообщения";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $messages = R::find('messages', 'ORDER BY id DESC');
 R::exec('UPDATE messages SET read_status = "1" WHERE read_status = 0');
-$unreadMessages = 0;
+$unreadMessages = 0; 
 @$messageDel = R::load('messages', $_GET['id']);
  if(@$_GET['type'] == 'del') {
 	R::trash($messageDel); 

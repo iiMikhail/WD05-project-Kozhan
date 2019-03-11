@@ -1,7 +1,30 @@
+<script type="text/javascript">
+	VK.init({apiId: 6891928});
+</script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+
+<!-- VK Widget -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(52709323, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52709323" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <body class="login-page"> 
 	<div class="autorization autorization--vertical-position">
 		<div class="autorization-head">
-			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>супер сайт</span></div>
+			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>DD-Life</span></div>
 			<div class="autorization-head-link"><a class="link" href="registration">Регистрация</a></div>
 		</div>
 		<div class="container">
@@ -25,17 +48,19 @@
 									type="password" 
 									placeholder="Пароль"  
 									value="<?=@$_POST['password']?>" />
+
 							<div class="autorization-content-form-help mb-30">
 										<label class="form__label-checkbox">
 											<input name="remember_me" class="form__input-checkbox" type="checkbox" checked="checked" />
 											<span class="form__checkbox">
 											</span>
-											Запомнить меня 
+											Запомнить меня  
 										</label>
 										<a class="link" href="lost-password">Забыл пароль</a></div>
 							<div class="autorization-content-form-button">
 								<input class="button button-enter" type="submit" name="enter-button" value="Войти" />
 							</div>
+								<div class="mt-20" id="vk_auth"></div>
 						</form>
 					</div>
 				</div>
@@ -58,5 +83,4 @@
 			src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
 	</script>
 </body>
-
 </html>

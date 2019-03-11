@@ -1,4 +1,20 @@
- <script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(52709323, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52709323" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script>
 <div class="container pt-80 pb-120">
 	<div class="row">
 		<div class="col-10 offset-1">
@@ -12,15 +28,15 @@
 						href="<?php echo HOST?>blog/post?type=del&id=<?php echo $post['id']?>">Удалить</a>
 					</div>
 				</div>
-				<?php  } ?>
+				<?php  } ?> 
 				<div class="flexpos">
 					<h1 class="title-general mb-0 mt-0"><?php echo $post['title']?></h1>
 					<div>
 					</div>
 				</div>
 				<div class="post-info">
-					<div class="post-info__author"><?php echo $post['firstname']?> <?php echo $post['lastname']?></div>
-					<div class="post-info__topic"><a class="postlink" href="#"><?php echo $post['cat_title']?></a></div>
+					<div class="post-info__author"><?=$post['firstname']?> <?=$post['lastname']?></div> 
+					<div class="post-info__topic"><a class="postlink" href="<?=HOST?>blog?catid=<?=$post['category_id']?>"><?=$post['cat_title']?></a></div>
 					<div class="post-info__date">
 						<?php if ($post['update_time'] != "") {
 							echo "Обновлено: "; echo rus_date("j F Y H:i", strtotime($post['update_time']));
@@ -29,7 +45,7 @@
 						} ?>
 							
 					</div>
-					<div class="post-info__comments"><a class="postlink" href="#"><?php echo commentNumber(count($commentsPost))?></a></div>
+					<div class="post-info__comments"><a class="postlink" href="#comments"><?=commentNumber(count($commentsPost))?></a></div>
 				</div>
 				<div class="post-img">
 					<?php if ($post['postimg'] != ""){ ?>
@@ -54,8 +70,10 @@
 					<?php } ?>
 				</div>	
 			</div>
-			<div class="user-comments-wrapper mb-25">
-				<div class="title-2"><?php echo commentNumber(count($commentsPost))?></div>
+			<div id="comments" class="user-comments-wrapper mb-25">
+				<?php if (count($commentsPost) > 0) { ?>
+					<div class="title-4"><?php echo commentNumber(count($commentsPost))?></div>
+				<?php } ?>
 				<?php foreach ($commentsPost as $commentPost) { ?>
 					<div class="user-comment">
 						<div class="user-comment__avatar">
@@ -76,7 +94,13 @@
 					</div>
 				<?php } ?>
 			</div> 
-			<h2 class="title-2 m-0 mb-15">Оставить комментарий</h2>
+			<?php if (count($commentsPost) > 0) { ?>
+				<h2 class="title-4 m-0 mb-15">Оставить комментарий</h2>
+			<?php } else { ?>
+				<h2 class="title-4 m-0 mb-15">Ваш комментарий может быть первым</h2>
+			<?php } ?>
+			
+			<?php include ROOT . "templates/_errors.tpl" ?>
 			<?php if (@$_SESSION['logged-user']['id']) { ?>
 				<form method="POST" action="<?php echo HOST?>blog/post?id=<?php echo $post['id']?>" class="comments-submit">
 					<div class="avatar avatar--small">
@@ -91,17 +115,17 @@
 							<?php echo $_SESSION['logged-user']['firstname']?>
 							<?php echo $_SESSION['logged-user']['lastname']?>
 						</b>
-						<!--<div class="notification">
-							<div class="notification__title notification--error">Комментарий не может быть пустым</div>
-						</div> -->
-						<textarea class="textarea" name="comment" placeholder="Присоединиться к обсуждению..."></textarea>
-						<input class="button mt-10" type="submit" name="addComment" value="Опубликовать" />
+						<div class="notification">
+							<div id="nocomment" class="notification__title notification--error">Комментарий не может быть пустым</div>
+						</div> 
+						<textarea id="addCommentUser" class="textarea" name="comment" placeholder="Присоединиться к обсуждению..."></textarea>
+						<input id="button-comment-send" class="button mt-10" type="submit" name="addComment" value="Опубликовать" />
 					</div>
 				</form>	
 			<?php } else { ?>
 				<div class="comments-unregistered">
 					<p class="comments-unregistered__note"><a class="link" href="<?php echo HOST?>login">Войдите</a> или <a class="link" href="<?php echo HOST?>registration">Зарегистрируйтесь</a> чтобы оставить комментарий</p>
-				</div>
+				</div> 
 			<?php } ?>
 
 		</div>

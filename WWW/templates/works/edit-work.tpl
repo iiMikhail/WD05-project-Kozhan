@@ -16,6 +16,10 @@
 								<label class="label" for="field-work-name">Название</label>
 								<input class="input" name="workName" id="field-work-name" type="text" placeholder="Введите название работы" value="<?php echo $works['name']?>" />
 							</div>
+							<div class="add-works__form-item mb-30">
+								<label class="label" for="field-work-meta">Мета описание</label>
+								<input class="input" name="meta" id="field-work-meta" type="text" placeholder="Введите название работы" value="<?php echo $works['meta']?>" />
+							</div>
 
 							<div class="add-post-content__name mb-30">
 								<label class="label" for="add-post-name">

@@ -1,6 +1,11 @@
  <?php
 $title = "Редактировать работу";
 
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $works = R::load('works', $_GET['id']);
 
 $categories = R::find('workcategory', 'ORDER BY name');
@@ -30,6 +35,7 @@ if (isset($_POST['save-button-work'])) {
 		$works->project = htmlentities($_POST['linkProject']);
 		$works->github = htmlentities($_POST['linkGithub']);
 		$works->categoryid = htmlentities($_POST['catid']);
+		$works->meta = htmlentities($_POST['meta']);
 
 		// Загрузка картинок
 		if (($_FILES['file']['name'] != "") && ($_FILES['file']['tmp_name'] != "")) {

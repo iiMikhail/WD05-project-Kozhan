@@ -12,6 +12,12 @@
 							</label>
 							<input class="input" name="post-name" id="add-post-name" type="text" placeholder="Введите имя" value="<?=@$_POST['post-name']?>" />
 						</div>
+						<div class="add-post-content__name mt-40">
+							<label class="label" for="add-post-meta">
+								Поле для ввода
+							</label>
+							<input class="input" name="meta" id="add-post-meta" type="text" placeholder="Введите мета описание поста" value="<?=@$_POST['meta']?>" />
+						</div>
 
 						<div class="add-post-content__name mt-40">
 							<label class="label" for="add-post-name">
@@ -51,8 +57,7 @@
 
 						<div class="add-post-content__submit mt-30">
 							<input class="button button-save mr-20" type="submit" name="add-post" value="Сохранить" />
-							<a class="button" href="<?HOST?>blog">Отмена</a>
-							<!-- <input class="button" type="submit" name="cancel-add-post" value="Отмена" /> -->
+							<a class="button" href="<?=HOST?>blog">Отмена</a>
 						</div>
 					</form>
 				</div>

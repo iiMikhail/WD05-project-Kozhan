@@ -65,6 +65,7 @@ if (isset($_POST['createOrder'])) {
 		$order->phone = htmlentities($_POST['phone']);
 		$order->phone = htmlentities($_POST['phone']);
 		$order->items = json_encode($orderedGoodsSummary);
+		$order->readStatus = false;
 		
 		if(isLoggedIn()) {
 			$order->userId = $_SESSION['logged-user']['id'];

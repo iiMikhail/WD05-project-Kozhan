@@ -1,8 +1,8 @@
 <?php
 $title = "Контакты - Главная";
-$contacts = R::load('contacts', 1);
- 
+@$metaDesc = "Оставить заявку на создание сайта под ключ. Сделать дизайн для сайта. Сделать backend для сайта";
 
+$contacts = R::load('contacts', 1);
 if (isset($_POST['save-button'])) {
 	if (trim($_POST['name-user']) == '') {
 		$errors[] = ['title' => 'Введите ваше имя']; 

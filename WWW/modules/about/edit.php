@@ -1,7 +1,12 @@
 <?php
-$title = "Обо мне";
+$title = "Обо мне - редактировать информацию";
 $aboutAutor = R::find('about');
 $aboutAutor = $aboutAutor[1];
+ 
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 if (isset($_POST['save-button'])) {
 

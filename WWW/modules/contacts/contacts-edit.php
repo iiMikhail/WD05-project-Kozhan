@@ -1,5 +1,11 @@
 <?php
 $title = "Контакты - редактировать";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $contacts = R::load('contacts', 1);
 if (isset($_POST['savebutton'])) {
 	$contacts->firstName=htmlentities($_POST['first-name']);

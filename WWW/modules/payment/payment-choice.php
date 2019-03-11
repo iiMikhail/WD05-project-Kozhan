@@ -1,6 +1,11 @@
  <?php
 $title = "Оплата - выбор оплаты"; 
 
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 if (isset($_GET['id']) && isLoggedIn()) {
 	$orderId = intval($_GET['id']);
 	$order = R::findOne('orders', 'id=' . $orderId); 

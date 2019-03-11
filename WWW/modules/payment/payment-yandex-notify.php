@@ -1,5 +1,10 @@
 <?php
 
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $text = json_encode($_POST);
 file_put_contents(ROOT . 'yandex-history.php', $text . PHP_EOL, FILE_APPEND);
 

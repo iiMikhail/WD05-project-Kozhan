@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#fmail').hide();
+	// $('#fmail').hide();
 
 	checkLogin = (function(){
 		var init = function() {

@@ -1,6 +1,39 @@
 <?php 
 $title = "Вход на сайт";
 
+// Авторизация через ВК
+$apiId = 6891928;
+$secretKey = 'qOsLFUWGtXVOeHLTkE04';
+$url = 'http://dd-life.ru/vklogin.php';
+$auth = "https://oauth.vk.com/authorize?client_id=$apiId&scope=email&redirect_uri=$url&response_type=code";
+if (@$_GET['uid'] != '') {
+	$vkid = $_GET['uid'];
+	$first_name = $_GET['first_name'];
+	$last_name = $_GET['last_name'];
+	$photo_rec = $_GET['photo_rec'];
+	if ( R::count('users', 'vkid = ?', array($_GET['uid'])) > 0 ) { 
+		$user = R::findOne('users', 'vkid = ?', array($_GET['uid']));
+		$user->vkid = $vkid;
+		$user->first_name = $first_name;
+		$user->last_name = $last_name;
+		$user->photo_rec = $photo_rec;
+		$user->role = 'user';
+    	$_SESSION['logged-user'] = $user;
+    	$_SESSION['login'] = '1';
+    	$_SESSION['role'] == 'user';
+	} else { 
+		 $user = R::dispense('users');
+		 $user->vkid = $vkid;
+		 $user->firstname = $first_name;
+		 $user->lastname = $last_name;
+		 $user->avatar_small = $photo_rec;
+		 $user->role = 'user';
+		 R::store($user);
+	}
+	header("location: " . $auth);
+}
+// *******************
+
 if (isset($_POST['enter-button'])) {
 	if (trim($_POST['email']) == '' || trim($_POST['password']) == '') {
 		$errors[] = ['title' => 'Введите E-mail и Пароль'];

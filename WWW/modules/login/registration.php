@@ -1,6 +1,5 @@
 <?php 
 $title = "Регистрация на сайте";
-$errors = array();
 
 if (isset($_POST['enter-button'])) {
 	if (trim($_POST['email']) == '' || trim($_POST['password']) == '') {

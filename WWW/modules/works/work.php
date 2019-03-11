@@ -2,6 +2,7 @@
 $title = "Страница одной работы";
 
 $work = R::load('works', $_GET['id']);
+@$metaDesc = $work['meta'];
 
 $sql = 'SELECT works.date_time, works.autorid, works.categoryid, users.firstname, users.lastname, workcategory.id, workcategory.name
 FROM works JOIN users 

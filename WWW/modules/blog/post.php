@@ -2,6 +2,7 @@
 $title = "Блог - пост";
 
 $postDel = R::load('posts', $_GET['id']);
+@$metaDesc = $postDel['meta'];  
 $sql = 'SELECT posts.id, posts.postimg, posts.title, posts.text, posts.date_time, posts.update_time, posts.autor_id, posts.category_id, users.firstname, users.lastname, categories.cat_title
 FROM posts JOIN categories 
 ON posts.category_id = categories.id
@@ -21,17 +22,19 @@ foreach ($postId as $index => $id) {
 }
 
 if (isset($_POST['addComment'])) {
-	// if (trim($_POST['comment']) == "" ) {
-	// 	$errors = ['title' => 'Текст комментария не может быть пустым'];
-	// }
-	$comment = R::dispense('comments');
-	$comment -> postId = htmlentities($_GET['id']);
-	$comment -> userId = htmlentities($_SESSION['logged-user']['id']);
-	$comment -> text = htmlentities($_POST['comment']);
-	$comment -> dateTime = R::isoDateTime();
-	R::store($comment);
-	header('location: ' . HOST . "blog/post?id=" . $_GET['id']);
-	exit();
+	if (trim($_POST['comment']) == "" ) {
+		$errors[] = ['title' => 'Текст комментария не может быть пустым'];
+	}
+	if (empty($errors)) {
+		$comment = R::dispense('comments');
+		$comment -> postId = htmlentities($_GET['id']);
+		$comment -> userId = htmlentities($_SESSION['logged-user']['id']);
+		$comment -> text = htmlentities($_POST['comment']);
+		$comment -> dateTime = R::isoDateTime();
+		R::store($comment);
+		header("location: " . HOST . "blog/post?id=" . $_GET['id'] . "#comments");
+		exit();
+	}
 }
 
 $sql = 'SELECT comments.id, comments.text, comments.date_time, comments.post_id, comments.user_id, posts.id, users.firstname, users.lastname, users.avatar_small
@@ -40,6 +43,9 @@ $sql = 'SELECT comments.id, comments.text, comments.date_time, comments.post_id,
 	JOIN users ON comments.user_id=users.id
 	WHERE comments.post_id = ' . $_GET['id'] . '';
 	$commentsPost = R::getAll($sql);
+// echo "<pre>";
+// print_r($post);
+// echo "</pre>";
 
 ob_start();
 

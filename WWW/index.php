@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('config.php');
 require('db.php');
 require('libs/functions.php');
@@ -6,6 +6,15 @@ $errors[] = array();
 $success[] = array();
 session_start(); 
 @$userInfo = $_SESSION['logged-user'];
+
+// Блокировка магазина для всех пользователей, кроме администратора
+$uri = explode('/', $_SERVER['REQUEST_URI']);
+$uri = $uri[1];
+if ($uri == 'shop' && $_SESSION['logged-user']['role'] != 'admin') {
+	header("location: " . HOST);
+	exit();
+}
+// ****************************************************************
 
 // Проверка токена для "Запомнить меня"
 if (isset($_COOKIE['password_cookie_token'])) {
@@ -16,9 +25,12 @@ if (isset($_COOKIE['password_cookie_token'])) {
 		$_SESSION['role'] = $user->role;
 	}
 }
+// ****************************************************************
  
 // Проверка новых сообщений
 $unreadMessages = R::count('messages', 'read_status = ?', ['0']);
+$unreadOrders = R::count('orders', 'read_status = ?', ['0']);
+// ****************************************************************
 
 // Проверка администратора
 if(@$_SESSION['logged-user']['role'] == 'admin') {
@@ -29,6 +41,7 @@ if(@$_SESSION['logged-user']['role'] == 'admin') {
 	@$userRole = $_SESSION['logged-user']['role'];
 }
 $errors = array();
+// ****************************************************************
 
 /**************************
 
@@ -40,6 +53,7 @@ $uri = rtrim($uri, "/");
 $uri = filter_var($uri, FILTER_SANITIZE_URL);
 $uri = substr($uri, 1);
 $uri = explode('?', $uri);
+
 
 switch ( $uri[0] ) {
 	case '':
@@ -187,16 +201,16 @@ switch ( $uri[0] ) {
 	case 'shop/payment-yandex-notify':
 		include ROOT . "modules/payment/payment-yandex-notify.php";
 		break;
-		
 
+	// ::::::: API :::::::::::
+	case 'vklogin.php':
+		include ROOT . "vklogin.php";
+		break;
+
+
+		
 	default:
 		echo "<p>Page not found</p><p>Error 404</p>";
 		break;
 }
-
-
-
-
-
-
- ?>
+?>

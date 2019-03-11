@@ -1,13 +1,22 @@
 <div class="col-4 pl-0 pr-0 mb-30">
-
-	<div class="card-box">
-		<div class="card-box__img-blog">
+<a class="" href="<?=HOST?>blog/post?id=<?=$post->id?>">
+	<div class="card-box box_industries">
+		<div style="overflow: hidden; position: relative;" class="card-box__img-blog">
 			<?php if ($post->postimgsmall != "") { ?>
-				<img src="<?php echo HOST?>usercontent/blog/post/small/<?php echo $post->postimgsmall?>" alt="<?=$post->title?>"/>
+				<img src="<?=HOST?>usercontent/blog/post/small/<?=$post->postimgsmall?>" alt="<?=$post->title?>"/>
 			<?php } else { ?>
-				<img src="<?php echo HOST?>usercontent/blog/post/small/post_def_small.jpg" alt="<?=$post->title?>"/>
-			<?php } ?>
+				<img src="<?=HOST?>usercontent/blog/post/small/post_def_small.jpg" alt="<?=$post->title?>"/>
+			<?php } ?> 
+		</div> 
+		<div class="card-box__img-blog--wrapper"></div>
+		<div class="content">
+			<div class="card-box__title-blog-preview">
+				<?php echo mbCutStr($post->title, 45)?>
+			</div>
+			<div id="anim_block" class="card-box__description-blog">
+				<?php echo mbCutStr($post->text, 150)?>
+			</div>
 		</div>
-		<div class="card-box__title"><?php echo mbCutStr($post->title, 45)?></div><a class="button card-box--button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 	</div>
+</a>
 </div>

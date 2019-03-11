@@ -1,5 +1,11 @@
 <?php
-$title = "Обо мне";
+$title = "Обо мне - редактировать навыки работы";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $skillsF = R::find('skills');
 $skillsF = $skillsF[1];
 

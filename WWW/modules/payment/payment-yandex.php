@@ -1,5 +1,10 @@
  <?php
-$title = "Магазин - оплата заказа";  
+$title = "Магазин - оплата заказа";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+} 
 
 if (!isset($_SESSION['order'])) {
 	header("location: " . HOST);

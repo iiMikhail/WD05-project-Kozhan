@@ -1,5 +1,10 @@
 <?php 
-$title = "Обо мне";
+$title = "Обо мне - редактировать опыт работы";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 if((@$_GET['id'] != "") && (@$_GET['type'] == "del")) {
 	$workplace = R::load('workplaces', $_GET['id']);

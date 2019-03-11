@@ -1,6 +1,11 @@
 <?php 
 $title = "Редактировать профиль";
 
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
+
 $userInfo = $_SESSION['logged-user'];
 $userID = R::load('users', $userInfo->id);
 

@@ -1,13 +1,15 @@
-<?php 
+<?php
+
+$user = R::load('users', $_SESSION['logged-user']['id']);
+$user->password_cookie_token = '';
+R::store($user);
+
 unset($_SESSION['logged-user']);
 unset($_SESSION['login']);
 unset($_SESSION['role']);
 
 setcookie("cart", "");
 
-$user = R::load('users', $user['id']);
-$user->password_cookie_token = '';
-R::store($user);
 setcookie('password_cookie_token', '', time() - 3600);
 
 session_destroy();

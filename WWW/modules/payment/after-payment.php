@@ -1,5 +1,10 @@
 <?php
-$title = "Оплата - успех"; 
+$title = "Оплата - успех";
+
+if (!isAdmin()) {
+	header("location: " . HOST);
+	exit();
+}
 
 unset($_SESSION['current-order']);
 unset($_SESSION['order']);

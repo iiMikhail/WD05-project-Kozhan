@@ -1,5 +1,11 @@
 <?php 
-$title = "Добавить пост";
+$title = "Блог - добавить пост";
+
+if ($_SESSION['logged-user']['role'] != 'admin') {
+	header("location: " . HOST);
+	exit();
+}
+
 $userInfo = $_SESSION['logged-user'];
 $posts = R::find('posts', 'ORDER BY id DESC');
 $categories = R::find('categories', 'ORDER BY cat_title');
@@ -21,6 +27,7 @@ if (isset($_POST['add-post'])) {
 		$post->text = $_POST['post-desc'];
 		$post->dateTime = R::isoDateTime();
 		$post->autorId = $_SESSION['logged-user']['id'];
+		$post->meta = htmlentities($_POST['meta']);
 
 		// Загрузка картинок
 		if (($_FILES['upload-file']['name'] != "") && ($_FILES['upload-file']['tmp_name'] != "")) {
@@ -65,8 +72,8 @@ if (isset($_POST['add-post'])) {
 
 				$target_file =  $postFolderLocation . $db_file_name;
 				$resized_file = $postFolderLocationSmall . "320-" . $db_file_name;
-				$wmax = 320;
-				$hmax = 140;
+				$wmax = 360;
+				$hmax = 250;
 				$img = createThumbnailCrop($target_file, $wmax, $hmax);
 				$img->writeImage($resized_file);
 
