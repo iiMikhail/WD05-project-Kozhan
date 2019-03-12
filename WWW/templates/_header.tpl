@@ -9,11 +9,21 @@
 			<div class="logo">
 				<div class="logo__wrapper">
 					<div class="logo__img">
-						<i class="far fa-paper-plane"></i>
+						<i class="fab fa-superpowers"></i>
 					</div>
-					<div class="logo__title">Digital Developer Life</div>
+					<div 	style="	margin-bottom: 10px; 
+									letter-spacing: 3.5px;" 
+							class="logo__title">DD-Life</div>
 				</div>
-				<div class="logo__description">Сайт веб-мастера</div>
+				<div 	style="	margin-left: 37px; 
+								line-height: 1.3; 
+								font-size: 13px; 
+								letter-spacing: 1.5px;" 
+						class="logo__description">
+					Цифровой дизайн <br>
+					Веб-разработка
+					
+				</div>
 			</div>
 <?php
 	if ( isset($_SESSION['logged-user'])
@@ -53,7 +63,7 @@
 	<?php } ?>
 		</div>
 		<div class="row">
-			<nav class="nav">
+			<nav style="margin-left: 37px;" class="nav">
 				<a class="nav__link" 
 				href="<?php echo HOST?>index">Главная</a>
 				<a class="nav__link" 

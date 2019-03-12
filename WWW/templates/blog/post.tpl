@@ -1,60 +1,93 @@
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+	<script type="text/javascript" >
+	   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(52709323, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/52709323" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	   ym(52709323, "init", {
+	        clickmap:true,
+	        trackLinks:true,
+	        accurateTrackBounce:true,
+	        webvisor:true
+	   });
+	</script> 
+	<noscript><div><img src="https://mc.yandex.ru/watch/52709323" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<!-- style="background: url(photo.jpg) center top / cover no-repeat fixed;" -->
 
-<script src="<?php echo HOST?>libs/ckeditor/ckeditor.js"></script>
-<div class="container pt-80 pb-120">
+<header style="background: url(../usercontent/blog/post/<?=$post['postimg']?>) center top / cover no-repeat fixed; position: relative; background-color: rgba(0,0,0,0.7); z-index: 2" class="mb-50 pb-60 blog-header"> 
+	<div style="z-index:0" class="blog__header-wrapper"></div> 
+	<div style="position: relative;" class="logo ml-50 pt-45 mb-35">
+		<a style="text-decoration: none" href="<?=HOST?>">
+			<div class="logo">
+				<div class="logo__wrapper">
+					<div class="logo__img">
+						<i class="fab fa-superpowers"></i>
+					</div>
+					<div style="margin-bottom: 10px; letter-spacing: 3.5px; color: white;" class="logo__title">DD-Life</div>
+				</div>
+				<div style="margin-left: 37px; line-height: 1.3; font-size: 13px; letter-spacing: 1.5px; color: white; opacity: 0.8;" class="logo__description">
+					Цифровой дизайн <br>
+					Веб-разработка	
+				</div>
+			</div>
+	</div> 
+	<div style="position: relative;" class="row blog--navigation ml-0 mb-100">
+		<nav style="margin-left: 37px;" class="nav">
+			<a class="nav__link" 
+			href="<?php echo HOST?>index">Главная</a>
+			<a class="nav__link" 
+			href="<?php echo HOST?>about">Обо мне</a>
+			<a class="nav__link" 
+			href="<?php echo HOST?>works">Работы</a>
+			<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+				<a class="nav__link" 
+				href="<?php echo HOST?>shop">Услуги</a> 
+			<?php } ?>
+			<a class="nav__link" 
+			href="<?php echo HOST?>blog">Блог</a>
+			<a class="nav__link" 
+			href="<?php echo HOST?>contacts">Контакты</a>
+		</nav>
+	</div>
+	<div style="position: relative;" class="container">
+		<div class="separate-work-head" style="padding: 0;">
+			<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
+			<div class="flexpos">
+				<div></div>
+				<div>
+					<a class="button button-edit mr-10" href="<?php echo HOST?>blog/post-edit?id=<?php echo $post['id']?>">Редактировать</a>
+					<a class="button button-delete"  
+					href="<?php echo HOST?>blog/post?type=del&id=<?php echo $post['id']?>">Удалить</a>
+				</div>
+			</div> 
+			<?php  } ?> 
+			<div class="flexpos">
+				<h1 style="font-size: 32px; color: white; padding: 0;" class="title-general mb-0 mt-0 col-md-5"><?=$post['title']?></h1>
+				<div></div>
+			</div>
+			<div class="blog__description-info col-md-6 mt-25" style="padding: 0;">
+				<?=$post['meta']?>
+			</div>
+			<div class="post-info mt-30">
+				<div style="color: white; opacity: 0.6;" class="post-info__author"><?=$post['firstname']?> <?=$post['lastname']?></div> 
+				<div class="post-info__topic"><a class="postlink" href="<?=HOST?>blog?catid=<?=$post['category_id']?>"><?=$post['cat_title']?></a></div>
+				<div style="color: white; opacity: 0.6;" class="post-info__date">
+					<?php if ($post['update_time'] != "") {
+						echo "Обновлено: "; echo rus_date("j F Y H:i", strtotime($post['update_time']));
+					} else {
+						echo "Добавлено: "; echo rus_date("j F Y H:i", strtotime($post['date_time']));} ?>		 
+				</div>
+				<div class="post-info__comments"><a class="postlink" href="#comments"><?=commentNumber(count($commentsPost))?></a></div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container pb-120 col-md-6" style="margin-top: -100px; z-index: 999; position: relative;">
 	<div class="row">
-		<div class="col-10 offset-1">
-			<div class="post"> 
-				<?php if(@$_SESSION['logged-user']['role'] == 'admin') { ?>
-				<div class="flexpos">
-					<div></div>
-					<div>
-						<a class="button button-edit mr-10" href="<?php echo HOST?>blog/post-edit?id=<?php echo $post['id']?>">Редактировать</a>
-						<a class="button button-delete"  
-						href="<?php echo HOST?>blog/post?type=del&id=<?php echo $post['id']?>">Удалить</a>
-					</div>
-				</div>
-				<?php  } ?> 
-				<div class="flexpos">
-					<h1 class="title-general mb-0 mt-0"><?php echo $post['title']?></h1>
-					<div>
-					</div>
-				</div>
-				<div class="post-info">
-					<div class="post-info__author"><?=$post['firstname']?> <?=$post['lastname']?></div> 
-					<div class="post-info__topic"><a class="postlink" href="<?=HOST?>blog?catid=<?=$post['category_id']?>"><?=$post['cat_title']?></a></div>
-					<div class="post-info__date">
-						<?php if ($post['update_time'] != "") {
-							echo "Обновлено: "; echo rus_date("j F Y H:i", strtotime($post['update_time']));
-						} else {
-							echo "Добавлено: "; echo rus_date("j F Y H:i", strtotime($post['date_time']));
-						} ?>
-							
-					</div>
-					<div class="post-info__comments"><a class="postlink" href="#comments"><?=commentNumber(count($commentsPost))?></a></div>
-				</div>
-				<div class="post-img">
-					<?php if ($post['postimg'] != ""){ ?>
-						<img src="<?php echo HOST?>usercontent/blog/post/<?php echo $post['postimg']?>" alt="Горы" />
-					<?php } else { ?>
-						<img src="<?php echo HOST?>usercontent/blog/post/post_def_big.jpg" alt="<?php echo $post['title']?>" />
-					<?php } ?>
-				</div>
-				<div class="post-content mb-25">
+		<div class="col-9">
+			<div class="post">
+				<div class="post-content mb-25" style="padding-top: 60px; padding-left: 20px; padding-right: 30px; background-color: white;">
 					<?php echo $post['text']?>
 				</div>
 				<div class="post-buttons-nav mb-25">
@@ -127,7 +160,6 @@
 					<p class="comments-unregistered__note"><a class="link" href="<?php echo HOST?>login">Войдите</a> или <a class="link" href="<?php echo HOST?>registration">Зарегистрируйтесь</a> чтобы оставить комментарий</p>
 				</div> 
 			<?php } ?>
-
 		</div>
 	</div>
 </div>

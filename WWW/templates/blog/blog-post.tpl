@@ -1,6 +1,6 @@
 <div class="col-4 pl-0 pr-0 mb-30">
 <a class="" href="<?=HOST?>blog/post?id=<?=$post->id?>">
-	<div class="card-box box_industries">
+	<div style="padding: 0;" class="card-box box_industries">
 		<div style="overflow: hidden; position: relative;" class="card-box__img-blog">
 			<?php if ($post->postimgsmall != "") { ?>
 				<img src="<?=HOST?>usercontent/blog/post/small/<?=$post->postimgsmall?>" alt="<?=$post->title?>"/>

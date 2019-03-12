@@ -2,7 +2,7 @@
 <body class="login-page">
 	<div class="autorization autorization--vertical-position">
 		<div class="autorization-head">
-			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>супер сайт</span></div>
+			<div class="autorization-head-logo"><span class="mr-20"><i class="far fa-paper-plane mr-0"></i></span><span>DD-Life</span></div>
 			<div class="autorization-head-link"><a class="link" href="registration">Регистрация</a></div>
 		</div>
 		<div class="container">

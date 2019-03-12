@@ -11,10 +11,6 @@ ON comments.post_id = posts.id
 JOIN users ON comments.user_id=users.id
 WHERE users.id = ' . $_SESSION['logged-user']['id'] . '';
 $commentsPost = R::getAll($sql);
-
-// echo "<pre>";
-// print_r($commentsPost);
-// echo "</pre>";
 	
 ob_start();
 include ROOT . "templates/_header.tpl";

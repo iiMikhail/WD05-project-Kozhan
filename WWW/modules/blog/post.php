@@ -1,9 +1,9 @@
 <?php
-$title = "Блог - пост";
+
 
 $postDel = R::load('posts', $_GET['id']);
-@$metaDesc = $postDel['meta'];  
-$sql = 'SELECT posts.id, posts.postimg, posts.title, posts.text, posts.date_time, posts.update_time, posts.autor_id, posts.category_id, users.firstname, users.lastname, categories.cat_title
+@$metaDesc = $postDel['meta']; 
+$sql = 'SELECT posts.id, posts.postimg, posts.meta, posts.title, posts.text, posts.date_time, posts.update_time, posts.autor_id, posts.category_id, users.firstname, users.lastname, categories.cat_title
 FROM posts JOIN categories 
 ON posts.category_id = categories.id
 JOIN users ON posts.autor_id=users.id
@@ -11,6 +11,7 @@ WHERE posts.id = ' . $_GET['id'] . '';
 
 $post = R::getAll($sql);
 $post = $post[0];
+$title = $post['title']; 
 
 $postId = R::getCol('SELECT id FROM posts ORDER BY id');
 foreach ($postId as $index => $id) {
@@ -19,7 +20,7 @@ foreach ($postId as $index => $id) {
 		@$prevId = $postId[$index - 1]; 
 		break;
 	}
-}
+} 
 
 if (isset($_POST['addComment'])) {
 	if (trim($_POST['comment']) == "" ) {
@@ -49,7 +50,7 @@ $sql = 'SELECT comments.id, comments.text, comments.date_time, comments.post_id,
 
 ob_start();
 
-include ROOT . "templates/_header.tpl";
+include ROOT . "templates/only-admin-panel.tpl"; 
 include ROOT . "templates/blog/post.tpl";
 $content = ob_get_contents();
 ob_end_clean();

@@ -74,8 +74,8 @@ if (isset($_POST['add-post'])) {
 				include_once( ROOT . "/libs/image_resize_imagick.php");
 
 				$target_file =  $postFolderLocation . $db_file_name;
-				$wmax = 920;
-				$hmax = 620;
+				$wmax = 1600;
+				$hmax = 800;
 				$img = createThumbnailBig($target_file, $wmax, $hmax);
 				$img->writeImage($target_file);
 

@@ -25,6 +25,7 @@
 							<div class="user-profile__button"><a class="button button-edit" href="edit-profile">Редактировать</a></div>
 						</div>
 						<div class="user-profile-information mb-35 mt-40">
+							<?php if ($userInfo['password'] != '') { ?>
 							<div class="user-profile__avatar">
 								<?php if (@$userInfo['avatar'] != ""){ ?>
 									<div class="avatar">
@@ -36,6 +37,19 @@
 									</div>
 								<?php } ?>
 							</div>
+							<?php } else { ?>
+							<div class="user-profile__avatar">
+								<?php if (@$userInfo['avatar'] != ""){ ?>
+									<div class="avatar">
+									<img src="<?=@$userInfo['avatar']?>" alt="alt text avatar" />
+								</div>
+								<?php } else { ?>
+									<div class="avatar">
+										<img src="<?php echo HOST?>usercontent/profile_def.png" alt="alt-avatar" />
+									</div>
+								<?php } ?>
+							</div>
+							<?php } ?>
 							<div class="user-profile__description"><span>Имя и фамилия</span>
 								<p><?=@$userInfo->firstname?> <?=@$userInfo->lastname?></p><span>Email</span>
 								<p><?=@$userInfo->email?></p><span>Страна, Город</span>
@@ -45,8 +59,8 @@
 							</div>
 						</div>
 						<div class="mb-30">
-							<div id="orders" class="title-1">Мои заказы</div>
-						  	<?php if ($orders != '') { ?>
+							<?php if (count($orders) != '') { ?>
+							<div id="orders" class="title-1">Заказы пользователя</div>
 								<table class="table">
 									<tbody>
 										<?php foreach ($orders as $order) { 
@@ -91,11 +105,14 @@
 										<?php } ?>
 									</tbody>  
 								</table>
-							<?php } else { ?>
-								<div class="mt-15">У вас еще нет заказов</div>
 							<?php } ?>
 						</div>
-						<h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2>
+						<?php if (count($commentsPost) > 0) { ?>
+							<h2 class="title-2 title-2--color mt-0 mb-25">Комментарии пользователя</h2> 
+						<?php } else { ?>
+							<h2 class="title-4 title-2--color mt-0 mb-25">Нет доступных действий для отображения</h2>
+						<?php } ?>
+						
 						<div class="user-profile-comments">
 
 							<?php foreach ($commentsPost as $comment) { ?>

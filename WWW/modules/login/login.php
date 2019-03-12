@@ -11,6 +11,7 @@ if (@$_GET['uid'] != '') {
 	$first_name = $_GET['first_name'];
 	$last_name = $_GET['last_name'];
 	$photo_rec = $_GET['photo_rec'];
+	$photo = $_GET['photo'];
 	if ( R::count('users', 'vkid = ?', array($_GET['uid'])) > 0 ) { 
 		$user = R::findOne('users', 'vkid = ?', array($_GET['uid']));
 		$user->vkid = $vkid;
@@ -26,6 +27,7 @@ if (@$_GET['uid'] != '') {
 		 $user->vkid = $vkid;
 		 $user->firstname = $first_name;
 		 $user->lastname = $last_name;
+		 $user->avatar = $photo;
 		 $user->avatar_small = $photo_rec;
 		 $user->role = 'user';
 		 R::store($user);
