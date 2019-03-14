@@ -41,7 +41,7 @@
 		</nav>
 	</div>
 	<div class="header-admin__right">
-		<a href="logout"><i class="fas fa-sign-out-alt"></i>Выход</a>
+		<a href="<?=HOST?>logout"><i class="fas fa-sign-out-alt"></i>Выход</a>
 	</div>
 </div>
 </div>

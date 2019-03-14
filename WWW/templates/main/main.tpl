@@ -45,13 +45,7 @@
 	<div class="container pl-0 pr-0">
 		<div class="row ml-0 mr-0">
 		<?php foreach ($work as $work) { ?>
-			<div class="col-md-4 pl-0 pr-0">
-				<div class="card-box card-box--height">
-					<div class="card-box__img-portfolio">
-						<img src="<?php echo HOST?>usercontent/works/small/<?php echo $work['workimgsmall']?>" /></div>
-					<div class="card-box__title"><?php echo $work['name']?></div><a class="button card-box--button" href="<?php echo HOST?>works/separate-work?id=<?php echo $work['id']?>">Смотреть кейс</a>
-				</div>
-			</div>
+			<?php include ROOT . "templates/works/single-work.tpl" ?>
 		<?php } ?>
 		</div>
 	</div>

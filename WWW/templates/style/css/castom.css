@@ -7772,7 +7772,7 @@ a.card__select {
 
 /******CARD********/
 .card,
-.card-box {
+.card-box { 
   border: none;
   border-radius: 6px;
   background-color: #fff;
@@ -7877,14 +7877,14 @@ a.card__select {
   align-self: flex-start;
 }
 .blog__header-wrapper {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.8);
   position: absolute;
   height: 100%;
   width: 100%;
   left: 0;
   top: 0;
 }
-
+ 
 .blog__description-info {
   font-size: 16px;
   color: white;
@@ -7900,6 +7900,62 @@ a.card__select {
 .postlink:hover {
   color: #E0E0E0;
   text-decoration: none;
-  
+}
+.work__card-box { 
+  border: none;
+  border-radius: 6px;
+  background-color: !important;
+  -webkit-box-shadow: 0px 10px 40px 0px rgba(99, 117, 138, 0.3);
+  box-shadow: 0px 10px 40px 0px rgba(99, 117, 138, 0.3);
+  padding: 0px; 
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 360px; 
+  height: 250px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  /*overflow: hidden;*/
+}
+.card-box__img-portfolio {
+  width: 360px;
+  height: 250px;
+  overflow: hidden;
+  margin: 0px 0px 0 0px;
+  position: relative;
+}
+.works__preview-desc {
+  margin-top: 10px; 
+  font-size: 15px;
+}
+.work__wrapper-desc-preview {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 320px;
+  color: white;
+}
+.work__category {
+  color: white;
+  opacity: .5;
+}
+.work__category:hover {
+  color: white;
+  opacity: .6;
+  transition-duration: 0.5s;
+}
+.work__count-visits {
+  color: white;
+  opacity: .5;
+}
+.work__count-visits:hover {
+  color: white;
+  opacity: .6;
+  transition-duration: 0.5s;
 }
 /*# sourceMappingURL=bootstrap.css.map */

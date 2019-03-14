@@ -19,7 +19,6 @@
 					</div>
 					<div class="col-4 no-paddings">
 						<div class="social">
-							<a href="https://vk.com/id533550142" target="_blank"><span class="social-icon"><i class="fab fa-vk"></i></span></a>
 
 							<a href="https://twitter.com/michael75435521" target="_blank"><span class="social-icon"><i class="fab fa-twitter"></i></span></a>
 

@@ -83,7 +83,7 @@ if (isset($_POST['save-button-work'])) {
 
 			$resized_file = $workFolderLocationSmall . "360-" . $db_file_name;
 			$wmax = 360;
-			$hmax = 190;
+			$hmax = 250;
 			$img = createThumbnailCrop($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 			$works->workimgsmall = "360-" . $db_file_name;

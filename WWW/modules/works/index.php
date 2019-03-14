@@ -5,7 +5,10 @@ $pagination = pagination('works');
 if (isset($_GET) && @$_GET['catid'] != '') {
 	@$work = R::find('works', 'categoryid = ?', array($_GET['catid']));
 } else {
-	$work = R::find('works', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
+	$sql = 'SELECT works.id, works.eye_count, works.name, works.workimgsmall, works.categoryid, workcategory.name AS cat_name
+	FROM works JOIN workcategory 
+	ON works.categoryid=workcategory.id';
+	$work = R::getAll($sql);
 }
 
  

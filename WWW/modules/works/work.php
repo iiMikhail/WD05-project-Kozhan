@@ -1,6 +1,12 @@
 <?php
 $title = "Страница одной работы";
 
+if ($_GET['id'] != '') {
+	$work = R::load('works', $_GET['id']);
+	$work->eyeCount = $work['eyeCount'] + 1;
+	R::store($work);
+}
+
 $work = R::load('works', $_GET['id']);
 @$metaDesc = $work['meta'];
 

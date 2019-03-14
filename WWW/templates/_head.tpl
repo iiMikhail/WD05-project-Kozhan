@@ -8,7 +8,7 @@
 	<meta name="description" content="<?=@$metaDesc?>" />
 	<link rel="stylesheet" href="<?php echo HOST?>templates/style/libs/normalize-css/normalize.css" />
 	<!-- <script src="<?=HOST?>libs/ckeditor/ckeditor.js"></script> -->
-	<link rel="stylesheet" href="<?php echo HOST?>templates/style/libs/bootstrap-4-grid/grid.min.css" /><!-- endbuild -->
+	<link rel="stylesheet" href="<?php echo HOST?>templates/style/libs/bootstrap-4-grid/grid.min.css" /><!-- endbuild --> 
 	<link rel="stylesheet" href="<?php echo HOST?>templates/style/css/main.css" />
 	<!-- API AUTORIZATION -->
 	<script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
@@ -17,6 +17,8 @@
   		VK.Widgets.Auth("vk_auth", {"authUrl":"/login"});
 	</script>
 	<!-- //API AUTORIZATION -->
+<!-- 	<link rel="icon" href="http://vash-site.ru/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="http://vash-site.ru/favicon.ico" type="image/x-icon" /> -->
 	<link rel="stylesheet" href="<?php echo HOST?>templates/style/css/castom.css" />
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,600,700&amp;amp;subset=cyrillic-ext" />
